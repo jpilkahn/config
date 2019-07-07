@@ -1,0 +1,3 @@
+[filter "lob"]
+    clean = "$GOPATH/bin/git-lob filter-clean %f"
+    smudge = "$GOPATH/bin/git-lob filter-smudge %f"

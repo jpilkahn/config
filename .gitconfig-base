@@ -1,0 +1,30 @@
+[include]
+    path = .gitconfig-alias
+    path = .gitconfig-color
+    path = .gitconfig-golang
+
+[core]
+    autocrlf = input
+    excludesfile = ~/.gitignore-global
+
+[gpg]
+    program = gpg2
+
+[apply]
+    whitespace = nowarn
+
+[branch]
+    autosetuprebase = always
+
+[diff]
+    mnemonicprefix = true
+#    external = git-meld
+
+[push]
+    default = upstream
+
+[pull]
+    default = current
+
+[rebase]
+    autosquash = true
