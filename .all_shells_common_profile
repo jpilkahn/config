@@ -1,23 +1,66 @@
-export PATH=$PATH:/home/johannespilkahn/assets/wordpress/i18n/
-export PATH=$PATH:/home/johannespilkahn/assets/imgopt/
 
-export WP_I18N_LIB="/home/johannespilkahn/assets/wordpress/i18n"
+# ---------------------------------- PATH -----------------------------------
 
-# enable color support of ls and also add handy aliases
+export PATH=$PATH:$HOME/bin
+
+
+# --------------------------------- locale ----------------------------------
+
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US:en_GB"
+
+
+# ----------------------------------- env -----------------------------------
+
+export EDITOR=joe
+export VISUAL=$EDITOR
+
+
+# -------------------------------- dircolors --------------------------------
+
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r ~/.dircolors \
+        && eval "$(dircolors -b ~/.dircolors)" \
+        || eval "$(dircolors -b)"
+
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
 
-# # ex - archive extractor
-# # usage: ex <file>
-ex ()
+
+# -------------------------------- ssh-agent --------------------------------
+
+eval "$(ssh-agent)" &>/dev/null
+
+if [ $? -ne 0 ]; then
+    export SSH_AUTH_SOCK=$HOME/.ssh/ssh-agent.$HOSTNAME.sock
+
+    ssh-add -l 2>/dev/null >/dev/null
+    if [ $? -ge 2 ]; then
+        ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+    fi
+fi
+
+
+# ------------------------------- shorthand ---------------------------------
+
+alias k=kdevelop
+
+alias jterm='terminator -l -p pille'
+alias jterm-proj='terminator -l proj -p pille'
+alias jterm-work='terminator -l work -p pille'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+
+# ---------------------- compressed archive extractor -----------------------
+
+archive-extractor ()
 {
   if [ -f $1 ] ; then
     case $1 in
@@ -32,14 +75,18 @@ ex ()
       *.zip)       unzip $1     ;;
       *.Z)         uncompress $1;;
       *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
+      *)           echo "'$1' cannot be extracted via $0" ;;
     esac
   else
     echo "'$1' is not a valid file"
   fi
 }
 
-# ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ex=archive-extractor
+
+
+# ----------------------------- embedded > avr ------------------------------
+
+# espressif (esp32)
+IDF_PATH=/opt/esp-idf
+export PATH="$PATH:$IDF_PATH/tools"
