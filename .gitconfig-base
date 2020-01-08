@@ -5,6 +5,7 @@
 
 [core]
     autocrlf = input
+    editor = joe
     excludesfile = ~/.gitignore-global
 
 [gpg]
