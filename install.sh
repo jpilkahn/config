@@ -15,5 +15,6 @@ ln -sf "$ABSPATH/.gitconfig-color" $DESTINATION
 ln -sf "$ABSPATH/.gitconfig-golang" $DESTINATION
 ln -sf "$ABSPATH/.gitignore-global" $DESTINATION
 ln -sf "$ABSPATH/.tmux.conf" $DESTINATION
+ln -sf "$ABSPATH/.Xresources" $DESTINATION
 ln -sf "$ABSPATH/.zpreztorc" $DESTINATION
 ln -sf "$ABSPATH/.zshrc" $DESTINATION

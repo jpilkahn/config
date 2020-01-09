@@ -1,0 +1,4 @@
+XTerm*cursorOnTime: 500
+XTerm*cursorOffTime: 200
+XTerm*selectToClipboard: true
+XTerm.vt100.locale: true
