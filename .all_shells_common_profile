@@ -1,18 +1,32 @@
 
 # ---------------------------------- PATH -----------------------------------
 
-export PATH=$PATH:$HOME/bin
+export PATH="$PATH:$HOME/bin"
 
 
 # --------------------------------- locale ----------------------------------
 
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US:en_GB"
+export LANGUAGE='en_US:en_GB'
+export LC_ALL='en_US.UTF-8'
+export LC_MEASUREMENT='en_DE.UTF-8',
+export LC_NUMERIC='en_US.UTF-8',
+export LC_TIME='en_GB.UTF-8',
+export LC_PAPER='de_DE.UTF-8',
+export LC_MONETARY='en_DE.UTF-8',
+export LC_TELEPHONE='de_DE.UTF-8',
+export LC_COLLATE='de_DE.UTF-8',
+export LANG='en_US.UTF-8'
 
 
 # ----------------------------------- env -----------------------------------
 
-export EDITOR=joe
+which joe &>/dev/null
+if [ $? -ne 0 ]; then
+    export EDITOR=joe
+else
+    export EDITOR=nano
+fi
+
 export VISUAL=$EDITOR
 
 
@@ -47,15 +61,18 @@ fi
 
 # ------------------------------- shorthand ---------------------------------
 
-alias k=kdevelop
+alias diff='diff -u'
 
-alias jterm='terminator -l -p pille'
-alias jterm-proj='terminator -l proj -p pille'
-alias jterm-work='terminator -l work -p pille'
+alias k=kdevelop
 
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+alias term='terminator'
+alias shell='term'
+alias term-proj='term -l proj'
+alias term-work='term -l work'
 
 
 # ---------------------- compressed archive extractor -----------------------
@@ -67,7 +84,7 @@ archive-extractor ()
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
       *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
+      *.rar)       unrar x $1   ;;
       *.gz)        gunzip $1    ;;
       *.tar)       tar xf $1    ;;
       *.tbz2)      tar xjf $1   ;;
