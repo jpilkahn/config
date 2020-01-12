@@ -1,0 +1,63 @@
+from atexit import register as register_exit_handler
+
+from os.path import (
+    expanduser,
+    join as joinpaths,
+)
+
+from readline import (
+    parse_and_bind,
+    read_history_file,
+)
+
+# import rlcompleter ?
+
+# console color theme
+try:
+    import solarized as c
+except ImportError:
+    # not part of standard Python distribution:
+    # might not be installed, fail silently
+    pass
+
+
+# ---------------------------------- history ----------------------------------
+
+historyFilePath = joinpaths(
+    expanduser('~'),
+    '.pyhistory'
+)
+
+
+def loadHistory(history=historyFilePath):
+    try:
+        readline.read_history_file(history)
+    except IOError:
+        pass
+
+
+def saveHistory(filePath=historyFilePath):
+    from readline import write_history_file
+
+    write_history_file(history)
+
+
+loadHistory()
+
+register_exit_handler(saveHistory)
+
+
+# ---------------------------------- modules ----------------------------------
+
+# (tab) auto completion
+parse_and_bind('tab: complete')
+
+
+# ---------------------------------- cleanup ----------------------------------
+
+del (
+    # imports
+    expanduser, joinpaths, read_history_file, register_exit_handler,
+    # local symbols
+    historyFilePath, loadHistory,
+)
