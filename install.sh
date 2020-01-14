@@ -1,21 +1,63 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-ABSPATH="$(dirname "$(readlink -f "$0")")"
 
-DESTINATION=$HOME
+_abspath="$(dirname "$(readlink -f "$0")")"
 
-mkdir -p $DESTINATION
+_destination="$HOME"
 
-ln -sf "$ABSPATH/.all_shells_common_profile" $DESTINATION
-ln -sf "$ABSPATH/.bashrc" $DESTINATION
-ln -sf "$ABSPATH/.gitconfig" $DESTINATION
-ln -sf "$ABSPATH/.gitconfig-alias" $DESTINATION
-ln -sf "$ABSPATH/.gitconfig-base" $DESTINATION
-ln -sf "$ABSPATH/.gitconfig-color" $DESTINATION
-ln -sf "$ABSPATH/.gitconfig-golang" $DESTINATION
-ln -sf "$ABSPATH/.gitignore-global" $DESTINATION
-ln -sf "$ABSPATH/.pythonrc" $DESTINATION
-ln -sf "$ABSPATH/.tmux.conf" $DESTINATION
-ln -sf "$ABSPATH/.Xresources" $DESTINATION
-ln -sf "$ABSPATH/.zpreztorc" $DESTINATION
-ln -sf "$ABSPATH/.zshrc" $DESTINATION
+_files=$(cat <<-EOF
+	.pythonrc
+	.all_shells_common_profile
+	.bashrc
+	.gitconfig
+	.gitconfig-alias
+	.gitconfig-base
+	.gitconfig-color
+	.gitconfig-golang
+	.gitignore-global
+	.tmux.conf
+	.Xresources
+	.zpreztorc
+	.zshrc
+EOF
+)
+
+
+__symlinkFiles () {
+    for _file in $_files ; do
+        _target="$_abspath/$_file"
+        if [ verbose = "$1" ] ; then
+            printf %s\\n "Symlinking $_target to $_destination/$_file"
+        fi
+        ln -sf "$_target" "$_destination"
+    done
+}
+
+
+__installPythonPackages () {
+    pip3 install -r python/pip3-requirements-system-wide.txt
+    pip2 install -r python/pip2-requirements-system-wide.txt
+}
+
+
+# ---------------------------------- options ----------------------------------
+
+_optInstallPythonPackages=
+_optVerbose=
+while getopts ":pv" _opt; do
+    case "$_opt" in
+        p) _optInstallPythonPackages=true   ;;
+        v) _optVerbose=verbose              ;;
+        *) echo "$0 [-p] [-v]" >&2 ; exit 1 ;;
+    esac
+done
+shift "$((OPTIND-1))"
+
+
+# ---------------------------------- install ----------------------------------
+
+mkdir -p "$_destination"
+
+__symlinkFiles "$_optVerbose"
+
+[ true = "$_optInstallPythonPackages" ] && __installPythonPackages
