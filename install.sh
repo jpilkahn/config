@@ -5,16 +5,12 @@ _abspath="$(dirname "$(readlink -f "$0")")"
 
 _destination="$HOME"
 
-_files=$(cat <<-EOF
+_configRelpaths=$(cat <<-EOF
 	.pythonrc
 	.all_shells_common_profile
 	.bashrc
-	.gitconfig
-	.gitconfig-alias
-	.gitconfig-base
-	.gitconfig-color
-	.gitconfig-golang
-	.gitignore-global
+	git/.gitconfig
+	git/.gitconfig.d
 	.tmux.conf
 	.Xresources
 	.zpreztorc
@@ -23,13 +19,16 @@ EOF
 )
 
 
-__symlinkFiles () {
-    for _file in $_files ; do
-        _target="$_abspath/$_file"
-        if [ verbose = "$1" ] ; then
-            printf %s\\n "Symlinking $_target to $_destination/$_file"
-        fi
+__symlinkConfig () {
+    for _relpath in $_configRelpaths ; do
+        _target="$_abspath/$_relpath"
+        _linkName="$_destination/$(basename "$_relpath")"
+
         ln -sf "$_target" "$_destination"
+
+        if [ verbose = "$1" ] ; then
+            printf %s\\n "Created symlink $_linkName"
+        fi
     done
 }
 
@@ -58,6 +57,6 @@ shift "$((OPTIND-1))"
 
 mkdir -p "$_destination"
 
-__symlinkFiles "$_optVerbose"
+__symlinkConfig "$_optVerbose"
 
 [ true = "$_optInstallPythonPackages" ] && __installPythonPackages

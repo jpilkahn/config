@@ -1,7 +1,0 @@
-[user]
-    name = Johannes Pilkahn
-    email = j.pilkahn@gmail.com
-    signingkey = XXX
-
-[include]
-    path = .gitconfig-base

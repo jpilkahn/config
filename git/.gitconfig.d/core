@@ -1,12 +1,7 @@
-[include]
-    path = .gitconfig-alias
-    path = .gitconfig-color
-    path = .gitconfig-golang
-
 [core]
     autocrlf = input
     editor = joe
-    excludesfile = ~/.gitignore-global
+    excludesfile = ~/.gitconfig.d/excludesfile
 
 [gpg]
     program = gpg2
@@ -15,6 +10,7 @@
     whitespace = nowarn
 
 [branch]
+    autosetupmerge = always
     autosetuprebase = always
 
 [diff]

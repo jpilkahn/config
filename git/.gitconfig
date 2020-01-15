@@ -1,0 +1,10 @@
+[user]
+    name = Johannes Pilkahn
+    email = j.pilkahn@gmail.com
+    signingkey = XXX
+
+[include]
+    path = .gitconfig.d/core
+    path = .gitconfig.d/alias
+    path = .gitconfig.d/color
+    path = .gitconfig.d/golang
