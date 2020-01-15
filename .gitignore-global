@@ -1,0 +1,14 @@
+.build
+node_modules
+
+*.pyc
+*.log
+*.mo
+*.swp
+
+*.*~
+*.ignore.*
+
+.kdev4/*
+*.kdev4
+*.kate-swp
