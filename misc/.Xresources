@@ -1,0 +1,7 @@
+# Both are set to `500` by default (Arch Linux, XTerm).
+# That ain't "blinking", that's "on and off periods"...
+*cursorOnTime:          500
+*cursorOffTime:         150
+
+*selectToClipboard:     true
+*.vt100.locale:         true
