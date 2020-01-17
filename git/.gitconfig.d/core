@@ -2,6 +2,7 @@
     autocrlf = input
     editor = joe
     excludesfile = ~/.gitconfig.d/excludesfile
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
 [gpg]
     program = gpg2

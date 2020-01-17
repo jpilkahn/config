@@ -11,6 +11,8 @@
     diff = diff --word-diff
     d = diff --word-diff
     dc = diff --cached
+    patch = !git --no-pager diff --no-color
+    pa = patch
 
     branch = branch -ra
     grep = grep -Ii

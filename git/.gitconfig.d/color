@@ -2,6 +2,7 @@
     branch = auto
     diff = auto
     status = auto
+    ui = true
 
 [color "branch"]
     current = red reverse
@@ -14,6 +15,16 @@
     old = red bold
     new = green
     plain = white
+    whitespace = red reverse
+
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green
+    newHighlight = green 52
+
+[diff-so-fancy]
+    markEmptyLines = false
 
 [color "status"]
     added = yellow
