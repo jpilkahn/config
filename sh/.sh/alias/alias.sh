@@ -10,7 +10,7 @@
 # --------------------------------- in-built ----------------------------------
 
 alias _ls="ls"
-alias ls="ls --tabsize=\${PIL_TABSIZE:-4}"
+alias ls="ls --tabsize=\${PIL_TABSIZE:-4} $PIL_COLOR_FLAG"
 alias ll="ls -alF"
 alias la="ls -AlBFh"
 alias l="ls -F"
@@ -25,6 +25,17 @@ alias _free="free"
 alias free="free -m"  # show sizes in MB
 
 alias more="less"
+
+alias grep="grep $PIL_COLOR_FLAG"
+alias egrep="egrep $PIL_COLOR_FLAG"
+alias fgrep="fgrep $PIL_COLOR_FLAG"
+
+alias dmesg="fgrep $PIL_COLOR_FLAG"
+
+
+# ----------------------------------- arch ------------------------------------
+
+alias pacman="pacman $PIL_COLOR_FLAG"
 
 
 # ---------------------------------- custom -----------------------------------
