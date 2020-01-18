@@ -1,13 +1,17 @@
 .build
+build
 node_modules
+
+*.*~
+*.ignore.*
+
+*.diff
+*.patch
 
 *.pyc
 *.log
 *.mo
 *.swp
-
-*.*~
-*.ignore.*
 
 .kdev4/*
 *.kdev4
