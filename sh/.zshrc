@@ -28,7 +28,7 @@ setopt NUMERIC_GLOB_SORT
 # ---------------------------------- history ----------------------------------
 
 setopt APPEND_HISTORY
-unsetopt EXTENDED_HISTORY
+setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 unsetopt INC_APPEND_HISTORY
 setopt HIST_LEX_WORDS

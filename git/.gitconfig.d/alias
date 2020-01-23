@@ -76,7 +76,7 @@
 
     last = "!gvim $(git show HEAD --format="" --name-only | xargs)"
 
-    empty = "!git commit -am\"[empty] Initial commit\" --allow-empty"
+    empty = "!git commit -am\"Initial commit\" --allow-empty"
 
     la = "!git config -l | grep alias | cut -c 7-"
 
