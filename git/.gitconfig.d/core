@@ -11,12 +11,13 @@
     whitespace = nowarn
 
 [branch]
-    autosetupmerge = always
+    # implies --track, `true` for remote branches, `always` for remote and local
+    autosetupmerge = true
+    # rebase (rather than default merge) on pull
     autosetuprebase = always
 
 [diff]
     mnemonicprefix = true
-#    external = git-meld
 
 [push]
     default = upstream
