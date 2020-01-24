@@ -8,6 +8,14 @@
     cp = cherry-pick
     gr = grep -Ii
 
+    rbi = rebase -i
+    rbi5 = rebase -i HEAD~5
+    rbi10 = rebase -i HEAD~10
+    rbia = rebase -i --autosquash
+    rbia5 = rebase -i HEAD~5 --autosquash
+    rbia10 = rebase -i HEAD~10 --autosquash
+    rbm = rebase master
+
     diff = diff --word-diff
     d = diff --word-diff
     dc = diff --cached
