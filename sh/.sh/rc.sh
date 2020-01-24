@@ -14,13 +14,13 @@
 # shellcheck source=sh/.sh/alias/alias.sh
 while read -r _include ; do
     [ -r "$_include" ] && . "$_include"
-done <<-EOF
-	.sh/env/custom.sh
-	.sh/env/editor.sh
-	.sh/env/locale.sh
-	.sh/env/path.sh
-	.sh/init/dircolors.sh
-	.sh/init/ssh-agent.sh
-	.sh/lib/archive-extractor.sh
-	.sh/alias/alias.sh
+done <<- EOF
+	$HOME/.sh/env/custom.sh
+	$HOME/.sh/env/editor.sh
+	$HOME/.sh/env/locale.sh
+	$HOME/.sh/env/path.sh
+	$HOME/.sh/init/dircolors.sh
+	$HOME/.sh/init/ssh-agent.sh
+	$HOME/.sh/lib/archive-extractor.sh
+	$HOME/.sh/alias/alias.sh
 EOF

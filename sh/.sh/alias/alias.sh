@@ -11,8 +11,8 @@
 
 alias _ls="ls"
 alias ls="ls -T\${PIL_TABSIZE:-4} \$PIL_COLOR_FLAG"
-alias ll="ls -alF"
-alias la="ls -AlBFh"
+alias la="ls -alF"
+alias ll="ls -AlBFh"
 alias l="ls -F"
 
 # confirm before overwriting
