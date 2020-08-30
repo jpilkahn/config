@@ -1,18 +1,33 @@
-.build
-build
-node_modules
+.build/**
+build/**
+dist/**
+**/node_modules/**
+
+# common backup / temporary patterns, custom ignore pattern
 
 *.*~
 *.ignore.*
 
+# dev artifacts
+
 *.diff
 *.patch
+
+# generated / cache artifacts
 
 *.pyc
 *.log
 *.mo
 *.swp
 
-.kdev4/*
+# editor artifacts
+
 *.kdev4
 *.kate-swp
+.kdev4/*
+.vscode/*
+.history/*
+
+# 3rd party service configuration
+
+.dcignore
