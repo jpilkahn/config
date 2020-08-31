@@ -1,0 +1,12 @@
+[user]
+	useConfigOnly = true
+
+[user.default]
+    name = Johannes Pilkahn
+    email = j.pilkahn@gmail.com
+	signingkey = AD031D3FB5481407
+
+[user.goldeimer]
+    name = Johannes Pilkahn
+    email = johannes@goldeimer.de
+    signingkey = 9044A71638CC50F6

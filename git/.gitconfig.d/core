@@ -1,11 +1,5 @@
-[core]
-    autocrlf = input
-    editor = joe
-    excludesfile = ~/.gitconfig.d/excludesfile
-    pager = diff-so-fancy | less --tabs=4 -RFX
-
-[gpg]
-    program = gpg2
+[advice]
+    addIgnoredFile = false
 
 [apply]
     whitespace = nowarn
@@ -15,6 +9,15 @@
     autosetupmerge = true
     # rebase (rather than default merge) on pull
     autosetuprebase = always
+
+[commit]
+	gpgsign = true
+
+[core]
+    autocrlf = input
+    editor = joe
+    excludesfile = ~/.gitconfig.d/excludesfile
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
 [diff]
     mnemonicprefix = true
@@ -27,6 +30,3 @@
 
 [rebase]
     autosquash = true
-
-[advice]
-    addIgnoredFile = false
