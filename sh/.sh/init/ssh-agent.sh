@@ -1,18 +1,15 @@
 #!/usr/bin/env sh
 
-
 # ssh-agent.sh
 # ============
 #
 # Initialize `ssh-agent`.
-
 
 _pidDir=/tmp/pid ; mkdir -p "$_pidDir"
 
 _cmd=ssh-agent
 
 _envFile="$_pidDir/$_cmd.env"
-
 
 # @param  $1 pid
 # @tparam $1 int
@@ -30,14 +27,12 @@ __isPidValidForCommand ()
     return 1
 }
 
-
 __exportEnv ()
 {
     [ -r "$_envFile" ] || return 66
     eval "$(cat "$_envFile")" >/dev/null 2>/dev/null
     return $?
 }
-
 
 __startAgent ()
 {
@@ -46,7 +41,6 @@ __startAgent ()
     __exportEnv
     return $?
 }
-
 
 [ -r "$_envFile" ] && __exportEnv
 
