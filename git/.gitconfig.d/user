@@ -1,10 +1,15 @@
 [user]
-	useConfigOnly = true
+    useConfigOnly = true
 
 [user.default]
     name = Johannes Pilkahn
     email = j.pilkahn@gmail.com
-	signingkey = AD031D3FB5481407
+    signingkey = AD031D3FB5481407
+
+[user.jpilkahn]
+    name = Johannes Pilkahn
+    email = j.pilkahn@gmail.com
+    signingkey = AD031D3FB5481407
 
 [user.goldeimer]
     name = Johannes Pilkahn
