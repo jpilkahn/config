@@ -13,6 +13,7 @@
 while read -r _include ; do
     [ -r "$_include" ] && . "$_include"
 done <<- EOF
+	$HOME/.sh/env/app-config.sh
 	$HOME/.sh/env/custom.sh
 	$HOME/.sh/env/editor.sh
 	$HOME/.sh/env/locale.sh
