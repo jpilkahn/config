@@ -1,13 +1,11 @@
 #!/usr/bin/env sh
 
-
 # alias.sh
 # ======
 #
 # Defines useful aliases.
 
-
-# --------------------------------- in-built ----------------------------------
+# ----------------------------------- posix ------------------------------------
 
 alias _ls="ls"
 alias ls="ls -T\${PIL_TABSIZE:-4} \$PIL_COLOR_FLAG"
@@ -37,17 +35,16 @@ alias fgrep="fgrep \$PIL_COLOR_FLAG"
 
 alias dmesg="fgrep \$PIL_COLOR_FLAG"
 
-
 # ----------------------------------- arch ------------------------------------
 
 alias pacman="pacman \$PIL_COLOR_FLAG"
 
-
 # ---------------------------------- custom -----------------------------------
 
+alias c="code"
 alias k="kdevelop"
 
+alias shell="konsole"
 alias term="terminator"
-alias shell="term"
 alias term-proj="term -l proj"
 alias term-work="term -l work"
