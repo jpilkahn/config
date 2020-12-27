@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 # editor.sh
 # =========
 #
@@ -8,7 +7,6 @@
 
 _editor=
 _visual=
-
 
 while read -r _candidate ; do
     _bin="$(command -v "$_candidate")"
@@ -22,17 +20,16 @@ done <<- EOF
     ed
 EOF
 
-
 while read -r _candidate ; do
     _bin="$(command -v "$_candidate")"
     [ -n "$_bin" ] && _visual="$_bin" && break
 done <<- EOF
+    code
     kdevelop
     atom
     kate
     gedit
 EOF
-
 
 # cmdline applications
 [ -n "$_editor" ] && { EDITOR="$_editor" ; export EDITOR ; }

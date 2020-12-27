@@ -64,6 +64,7 @@ __lint ()
 {
     __doLint "$1" <<-EOF
 		sh/.sh/alias/alias.sh
+		sh/.sh/env/app-config.sh
 		sh/.sh/env/custom.sh
 		sh/.sh/env/editor.sh
 		sh/.sh/env/locale.sh
