@@ -18,7 +18,8 @@
 
 --smart-case
 
---stats
+--type-add
+bundler:{rollup,webpack}.config.json
 
 --type-add
 lockfile:{composer,package,yarn}.lock
@@ -27,4 +28,10 @@ lockfile:{composer,package,yarn}.lock
 package:{composer,package}.json
 
 --type-add
+rollup:rollup.config.json
+
+--type-add
 web:*.{css,html,js}
+
+--type-add
+webpack:webpack.config.json
