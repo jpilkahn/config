@@ -64,6 +64,10 @@ __lint ()
 {
     __doLint "$1" <<-EOF
 		sh/.sh/alias/alias.sh
+		sh/.sh/alias/alias-arch.sh
+		sh/.sh/alias/alias-custom.sh
+		sh/.sh/alias/alias-posix.sh
+		sh/.sh/alias/alias-ripgrep.sh
 		sh/.sh/env/app-config.sh
 		sh/.sh/env/custom.sh
 		sh/.sh/env/editor.sh
