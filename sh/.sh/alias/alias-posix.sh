@@ -29,4 +29,4 @@ alias grep="grep \$PIL_COLOR_FLAG"
 alias egrep="egrep \$PIL_COLOR_FLAG"
 alias fgrep="fgrep \$PIL_COLOR_FLAG"
 
-alias dmesg="fgrep \$PIL_COLOR_FLAG"
+alias dmesg="dmesg \$PIL_COLOR_FLAG"
