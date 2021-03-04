@@ -7,7 +7,17 @@
 
 --follow
 
---glob=!git/*
+--glob
+!.git/*
+
+--glob
+!?.pnp?(.data).js
+
+--glob
+!.yarn/*
+
+--glob
+!yarn.lock
 
 --hidden
 
@@ -25,7 +35,7 @@ bundler:{rollup,webpack}.config.json
 lockfile:{composer,package,yarn}.lock
 
 --type-add
-package:{composer,package}.json
+manifest:{composer,package}.json
 
 --type-add
 rollup:rollup.config.json
