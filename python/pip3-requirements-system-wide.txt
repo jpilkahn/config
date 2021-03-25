@@ -65,7 +65,7 @@ PyQt5==5.14.0
 PyQt5-sip==12.7.0
 pyserial==3.4
 pytoml==0.1.21
-PyYAML==5.1.2
+PyYAML==5.4
 QScintilla==2.11.4
 QtAwesome==0.6.0
 QtPy==1.9.0
