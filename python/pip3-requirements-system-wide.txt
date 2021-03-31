@@ -32,7 +32,7 @@ keyutils==0.6
 lensfun==0.3.2
 lit==0.9.0.dev0
 lockfile==0.12.2
-lxml==4.4.2
+lxml==4.6.3
 mallard-ducktype==1.0.2
 Markdown==3.1.1
 MarkupSafe==1.1.1
