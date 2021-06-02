@@ -54,7 +54,7 @@ six==1.13.0
 soupsieve==1.9.5
 team==1.0
 terminator==1.91
-urllib3==1.25.7
+urllib3==1.26.5
 virtualenv==16.1.0
 webencodings==0.5.1
 wxPython==3.0.2.0
