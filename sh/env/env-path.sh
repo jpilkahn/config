@@ -8,7 +8,4 @@
 # local, short-lived binaries
 _homeBinDir="$HOME/bin"
 
-# espressif (esp32) sdk
-IDF_PATH="/opt/esp-idf" ; export IDF_PATH
-
-PATH="$PATH:$_homeBinDir:$IDF_PATH/tools" ; export PATH
+PATH="$PATH:$_homeBinDir" ; export PATH

@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 
-
-# locale.sh
-# =========
+# Locale Environment
 #
 # @see Standard:
 # - [IEEE Std 1003.1-2017 / POSIX, ch. 7, "Locales"]\
@@ -32,7 +30,6 @@
 # - `C` / `POSIX`  (relevant)
 # - `en@piglatin`  (humorous)
 # - `nds_DE.UTF-8` (cultural)
-
 
 # Most basic locale parameter, lowest priority.
 LANG="en_US.UTF-8" ; export LANG
