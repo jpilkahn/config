@@ -4,6 +4,7 @@
 # shellcheck source=./sh/alias/alias-posix-misc.sh
 # shellcheck source=./sh/alias/alias-terminal-emulator.sh
 # shellcheck source=./diff/alias-diff.sh
+# shellcheck source=./esp-idf/alias-esp.sh
 # shellcheck source=./git/alias-git.sh
 # shellcheck source=./grep/alias-grep.sh
 # shellcheck source=./pacman/alias-pacman.sh
@@ -15,6 +16,7 @@ while read -r _include ; do
     [ -r "$_include" ] && . "$_include"
 done <<- EOF
 	$HOME/.sh/alias/alias-diff.sh
+	$HOME/.sh/alias/alias-esp.sh
 	$HOME/.sh/alias/alias-filesystem.sh
 	$HOME/.sh/alias/alias-git.sh
 	$HOME/.sh/alias/alias-grep.sh

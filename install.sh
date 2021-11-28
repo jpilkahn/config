@@ -68,6 +68,8 @@ __lint ()
 {
     __doLint "$1" <<-EOF
 		diff/alias-diff.sh
+		esp-idf/alias-esp.sh
+		esp-idf/env-esp.sh
 		git/alias-git.sh
 		grep/alias-grep.sh
 		pacman/alias-pacman.sh
@@ -106,7 +108,6 @@ __symlink ()
 EOF
 
     __doSymlink "$1" ".sh" <<-EOF
-		sh/env
 		sh/init
 		sh/lib
 		sh/rc.sh
@@ -114,6 +115,7 @@ EOF
 
     __doSymlink "$1" ".sh/alias" <<-EOF
 		diff/alias-diff.sh
+		esp-idf/alias-esp.sh
 		git/alias-git.sh
 		grep/alias-grep.sh
 		pacman/alias-pacman.sh
@@ -125,6 +127,15 @@ EOF
 		svn/alias-svn.sh
         vscode/alias-vscode.sh
 		yarn/alias-yarn.sh
+EOF
+
+    __doSymlink "$1" ".sh/env" <<-EOF
+		esp-idf/env-esp.sh
+		sh/env/env.sh
+		sh/env/env-editor.sh
+		sh/env/env-locale.sh
+		sh/env/env-path.sh
+		sh/env/env-shell.sh
 EOF
 
     __doSymlink "$1" ".zsh" <<-EOF
