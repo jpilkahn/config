@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# alias-ripgrep.sh
+# alias-rg.sh
 # ================
 
 alias rgs="rg --stats"

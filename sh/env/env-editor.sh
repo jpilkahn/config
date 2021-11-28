@@ -24,10 +24,11 @@ while read -r _candidate ; do
     _bin="$(command -v "$_candidate")"
     [ -n "$_bin" ] && _visual="$_bin" && break
 done <<- EOF
+    codium
     code
     kdevelop
-    atom
     kate
+    atom
     gedit
 EOF
 

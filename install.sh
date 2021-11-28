@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 
-
 _abspath="$(dirname "$(readlink -f "$0")")"
-
 
 __doLint ()
 {
@@ -51,50 +49,82 @@ __doSymlink ()
         _destination="$HOME${_subdir:+"/$_subdir"}"
         _linkName="$_destination/$(basename "$_relpath")"
 
+        [ -d "$_destination" ] || (
+            if [ "$_verbose" = "verbose" ] ; then
+                printf %s\\n "Creating folder $_destination"
+            fi
+            mkdir -p "$_destination"
+        )
+
+
         if [ "$_verbose" = "verbose" ] ; then
             printf %s\\n "Creating symlink for $_linkName"
         fi
-        [ -d "$_destination" ] || mkdir -p "$_destination"
         ln -sf "$_target" "$_destination"
     done
 }
 
-
 __lint ()
 {
     __doLint "$1" <<-EOF
-		sh/.sh/alias/alias.sh
-		sh/.sh/alias/alias-arch.sh
-		sh/.sh/alias/alias-custom.sh
-		sh/.sh/alias/alias-posix.sh
-		sh/.sh/alias/alias-ripgrep.sh
-		sh/.sh/env/app-config.sh
-		sh/.sh/env/custom.sh
-		sh/.sh/env/editor.sh
-		sh/.sh/env/locale.sh
-		sh/.sh/env/path.sh
-		sh/.sh/init/dircolors.sh
-		sh/.sh/init/ssh-agent.sh
-		sh/.sh/lib/archive-extractor.sh
-		sh/.sh/rc.sh
+		diff/alias-diff.sh
+		git/alias-git.sh
+		grep/alias-grep.sh
+		pacman/alias-pacman.sh
+		rg/alias-rg.sh
+		sh/alias/alias.sh
+		sh/alias/alias-filesystem.sh
+		sh/alias/alias-posix-misc.sh
+		sh/alias/alias-terminal-emulator.sh
+		sh/env/env-editor.sh
+		sh/env/env-locale.sh
+		sh/env/env-path.sh
+		sh/env/env-shell.sh
+		sh/init/dircolors.sh
+		sh/init/ssh-agent.sh
+		sh/lib/archive-extractor.sh
+		sh/rc.sh
+		svn/alias-svn.sh
+        vscode/alias-vscode.sh
+		yarn/alias-yarn.sh
 EOF
 
     return $?
 }
-
 
 __symlink ()
 {
     __doSymlink "$1" <<-EOF
 		git/.gitconfig
 		git/.gitconfig.d
-		misc/.tmux.conf
-		misc/.Xresources
+		tmux/.tmux.conf
+		x11/.Xresources
 		python/.pythonrc
 		sh/.bashrc
 		sh/.bash_profile
-		sh/.sh
 		sh/.zshenv
+EOF
+
+    __doSymlink "$1" ".sh" <<-EOF
+		sh/env
+		sh/init
+		sh/lib
+		sh/rc.sh
+EOF
+
+    __doSymlink "$1" ".sh/alias" <<-EOF
+		diff/alias-diff.sh
+		git/alias-git.sh
+		grep/alias-grep.sh
+		pacman/alias-pacman.sh
+		rg/alias-rg.sh
+		sh/alias/alias.sh
+		sh/alias/alias-filesystem.sh
+		sh/alias/alias-posix-misc.sh
+		sh/alias/alias-terminal-emulator.sh
+		svn/alias-svn.sh
+        vscode/alias-vscode.sh
+		yarn/alias-yarn.sh
 EOF
 
     __doSymlink "$1" ".zsh" <<-EOF
@@ -103,12 +133,10 @@ EOF
 EOF
 }
 
-
 __installPythonPackages () {
     pip3 install -r python/pip3-requirements-system-wide.txt
     pip2 install -r python/pip2-requirements-system-wide.txt
 }
-
 
 # ---------------------------------- options ----------------------------------
 
@@ -120,22 +148,20 @@ __usage ()
     printf %s\\n "-v verbose"
 }
 
-
 _optInstallPythonPackages=
 _optLint=
 _optVerbose=
 
 while getopts ":hlpv" _opt ; do
     case "$_opt" in
-        l) _optLint=true                    ;;
-        p) _optInstallPythonPackages=true   ;;
-        v) _optVerbose=verbose              ;;
-        h) __usage "$0" ; exit 0              ;;
-        *) __usage "$0" ; exit 1              ;;
+        l) _optLint=true                  ;;
+        p) _optInstallPythonPackages=true ;;
+        v) _optVerbose=verbose            ;;
+        h) __usage "$0" ; exit 0          ;;
+        *) __usage "$0" ; exit 1          ;;
     esac
 done
 shift "$((OPTIND-1))"
-
 
 # ---------------------------------- install ----------------------------------
 

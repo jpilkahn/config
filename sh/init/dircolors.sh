@@ -1,11 +1,6 @@
 #!/usr/bin/env sh
 
-
-# dircolors.sh
-# ============
-#
-# Initialize `dircolors`.
-
+# Initialize `dircolors`
 
 # @see alias.sh
 PIL_COLOR_FLAG=
