@@ -22,6 +22,9 @@
 [diff]
     mnemonicprefix = true
 
+[init]
+    defaultBranch = main
+
 [push]
     default = upstream
 
