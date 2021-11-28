@@ -1,33 +1,181 @@
-.build/**
-build/**
-dist/**
-**/node_modules/**
+# ===== 0. utility =============================================================
 
-# common backup / temporary patterns, custom ignore pattern
+# Utility ignore patterns for on-the-spot dynamic use.
+# @see A.1 (1)
 
-*.*~
-*.ignore.*
+**/ignore/
+**/*.ignore.*
+**/*.ignore
 
-# dev artifacts
+**/stash/
+**/*.stash.*
+**/*.stash
 
-*.diff
-*.patch
 
-# generated / cache artifacts
+# ===== 1. bundle, compile, package, deploy ====================================
 
-*.pyc
-*.log
+# ----- build output -----------------------------------------------------------
+
+**/build/**
+**/dist/**
+**/packages/**/static
 *.mo
+*.pyc
+
+# ----- dependencies (third-party code) ----------------------------------------
+
+**/bower_components/
+**/node_modules/
+**/vendor/
+
+# ----- terraform --------------------------------------------------------------
+
+# terraform
+**/.terraform/*
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfvars
+
+# ----- tooling artifacts ------------------------------------------------------
+
+**/lerna-*.log
+**/npm-*.log
+**/yarn-*.log
+
+# ----- yarn > base config -----------------------------------------------------
+
+.yarn/**
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# @see [yarn 2 doc: "gitignore"][yarn/doc/gitignore]
+
+# ----- yarn > zero-installs (pnp) ---------------------------------------------
+
+!.cache/yarn
+!.yarn/cache
+!.yarn/pnp.data.json
+
+# @see [yarn 2 doc: "zero-installs"][yarn/doc/zero-installs
+
+
+# ===== 2. transient data ======================================================
+
+# ----- db dumps / query results -----------------------------------------------
+
+**/*.csv
+**/*.db
+**/*.dump
+**/*.sql
+**/*.sqllite
+
+# ----- dev user artifacts -----------------------------------------------------
+
+**/*.diff
+**/*.patch
+**/*.wip.*
+
+# ----- (non-persistent) caches ------------------------------------------------
+
+**/.firebase
+**/.rollup.cache
+
+
+# ===== 3. editor ==============================================================
+
+# ----- vscode -----------------------------------------------------------------
+
+**/.history/
+**/.vscode/**
+!**/.vscode/doc/
+!**/.vscode/extensions.json
+!**/.vscode/launch.json
+!**/.vscode/settings.json
+!**/.vscode/tasks.json
+!**/.vscode/*.code-workspace
+
+# ----- other IDEs -------------------------------------------------------------
+
+**/*.settings/
+**/*.kdev4/
+**/.c9/
+**/.classpath
+**/.idea
+**/.project
+**/*.kate-swp
+**/*.launch
+**/*.sublime-workspace
+
+
+# ===== 4. service & system artifacts =============================================
+
+# ----- OS artifacts -----------------------------------------------------------
+
+**/.DS_Store
+**/Thumbs.db
 *.swp
+*.*~
 
-# editor artifacts
-
-*.kdev4
-*.kate-swp
-.kdev4/*
-.vscode/*
-.history/*
-
-# 3rd party service configuration
+# ----- third-party service artifacts ------------------------------------------
 
 .dcignore
+
+
+# ===== 5. security ============================================================
+
+# NOTE: If uncertain why you'd make a change here, hold it with MC Hammer.
+# (Can't touch this.)
+
+# ----- dotenv -----------------------------------------------------------------
+
+**/*.env*
+!**/.env.defaults
+!**/.env.example
+
+# ----- git-secret -------------------------------------------------------------
+
+.gitsecret/keys/random_seed
+!**/*.secret
+
+# ----- (common) private keys --------------------------------------------------
+
+*gpg*
+*id_rsa*
+*id_ecdsa*
+*id_ed25519*
+*private*
+*privkey*
+*.asc
+*.key
+!*public.*
+!*.pub
+
+# This category *should* be a superfluous mention, ideally.
+# @see A.1 (2)
+
+# ----- utility ----------------------------------------------------------------
+
+**/*secret.*
+**/*secrets.*
+
+
+# ===== A.1 Notes ==============================================================
+
+# (1) Section 0 holds Utility ignore patterns for on-the-spot dynamic use.
+# Deliberatedly placed at the head of the file as the 'zeroest' category,
+# such that more fine-grained rules are not unknowingly negated by these
+# patterns afterwards.
+
+# (2) This category *should* be a superfluous mention, ideally.
+# At the same time, mankind also *should* massively care about climate change.
+# Let's at least treat data security with a bit more serioussnes than man is
+# treating the soon reached `> 400ppm` carbondioxide in the atmosphere.
+
+
+# ===== A.2 References =========================================================
+
+# [yarn/doc/gitignore]: https://yarnpkg.com/getting=started/qa#which=files=should=be=gitignored
+# [yarn/doc/zero-installs]: https://yarnpkg.com/features/zero=installs

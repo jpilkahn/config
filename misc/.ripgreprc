@@ -11,7 +11,7 @@
 !.git/*
 
 --glob
-!?.pnp?(.data).js
+!.pnp?(.data).js
 
 --glob
 !.yarn/*
