@@ -90,12 +90,15 @@
 
 **/.history/
 **/.vscode/**
+
 !**/.vscode/doc/
 !**/.vscode/extensions.json
 !**/.vscode/launch.json
 !**/.vscode/settings.json
 !**/.vscode/tasks.json
+
 !**/.vscode/*.code-workspace
+!**/.vscode/*_properties.json
 
 # ----- other IDEs -------------------------------------------------------------
 
