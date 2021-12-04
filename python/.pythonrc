@@ -10,50 +10,56 @@ from readline import (
     read_history_file,
 )
 
-# import rlcompleter ?
+# Completes partially typed symbols from names currently defined in `__main__`,
+# `builtins` and `keywords` (as defined by the `keyword` module).
+# A dotted name is evaluated as an expression up to the last (semantically
+# relevant) period, attributes of the preceding object are completed.
+import rlcompleter
+
+# --------------------------------- color theme --------------------------------
 
 # console color theme
 try:
     import solarized as c
 except ImportError:
-    # not part of standard Python distribution:
+    # not a bundled part of standard Python distributions:
     # might not be installed, fail silently
     pass
 
+# ---------------------------------- history -----------------------------------
 
-# ---------------------------------- history ----------------------------------
-
-historyFilePath = joinpaths(
+defaultHistoryFileAbspath = joinpaths(
     expanduser('~'),
     '.pyhistory'
 )
 
 
-def loadHistory(history=historyFilePath):
+def loadHistory(abspath=defaultHistoryFileAbspath):
     try:
-        readline.read_history_file(history)
+        read_history_file(abspath)
     except IOError:
         pass
 
 
-def saveHistory(filePath=historyFilePath):
+def saveHistory(abspath=defaultHistoryFileAbspath):
+    # This is used as an exit handler (might be called from unclean state),
+    # hence make sure the relevant imported module is available.
     from readline import write_history_file
 
-    write_history_file(history)
+    write_history_file(abspath)
 
 
 loadHistory()
 
 register_exit_handler(saveHistory)
 
+# ---------------------------------- modules -----------------------------------
 
-# ---------------------------------- modules ----------------------------------
-
-# (tab) auto completion
+# (tab) auto completion:
+# bind a call to `rlcompleter.complete()` to <tab> keypress
 parse_and_bind('tab: complete')
 
-
-# ---------------------------------- cleanup ----------------------------------
+# ---------------------------------- cleanup -----------------------------------
 
 del (
     # imports
