@@ -72,7 +72,7 @@
     rh2 = reset HEAD^^ --hard
 
     cl = clone
-    ic = !git commit --allow-empty -m "Initial commit"
+    ic = !git commit --allow-empty -m "chore(git): initial commit"
 
     sh = stash
     shl = stash list
