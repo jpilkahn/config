@@ -10,9 +10,9 @@
 while read -r _include ; do
     [ -r "$_include" ] && . "$_include"
 done <<- EOF
-	$HOME/.sh/env/env.sh
-	$HOME/.sh/init/dircolors.sh
-	$HOME/.sh/init/ssh-agent.sh
-	$HOME/.sh/lib/archive-extractor.sh
-	$HOME/.sh/alias/alias.sh
+    $HOME/.sh/env/env.sh
+    $HOME/.sh/init/dircolors.sh
+    $HOME/.sh/init/ssh-agent.sh
+    $HOME/.sh/lib/archive-extractor.sh
+    $HOME/.sh/alias/alias.sh
 EOF

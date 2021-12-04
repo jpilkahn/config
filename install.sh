@@ -19,11 +19,13 @@ __doLint ()
             _ret=66
         fi
 
-        _format=${_verbose:+tty} _format=${_format:-quiet}
+        _format=${_verbose:+tty}
+        _format=${_format:-quiet}
+
         if {
             shellcheck -a \
                        -x \
-                       -P "$_abspath/sh/include" \
+                       -P "$_abspath" \
                        -f"$_format" \
                        -Sstyle \
                        "$_relpath"
@@ -67,28 +69,28 @@ __doSymlink ()
 __lint ()
 {
     __doLint "$1" <<-EOF
-		diff/alias-diff.sh
-		esp-idf/alias-esp.sh
-		esp-idf/env-esp.sh
-		git/alias-git.sh
-		grep/alias-grep.sh
-		pacman/alias-pacman.sh
-		rg/alias-rg.sh
-		sh/alias/alias.sh
-		sh/alias/alias-filesystem.sh
-		sh/alias/alias-posix-misc.sh
-		sh/alias/alias-terminal-emulator.sh
-		sh/env/env-editor.sh
-		sh/env/env-locale.sh
-		sh/env/env-path.sh
-		sh/env/env-shell.sh
-		sh/init/dircolors.sh
-		sh/init/ssh-agent.sh
-		sh/lib/archive-extractor.sh
-		sh/rc.sh
-		svn/alias-svn.sh
+        diff/alias-diff.sh
+        esp-idf/alias-esp.sh
+        esp-idf/env-esp.sh
+        git/alias-git.sh
+        grep/alias-grep.sh
+        pacman/alias-pacman.sh
+        rg/alias-rg.sh
+        sh/alias/alias.sh
+        sh/alias/alias-filesystem.sh
+        sh/alias/alias-posix-misc.sh
+        sh/alias/alias-terminal-emulator.sh
+        sh/env/env-editor.sh
+        sh/env/env-locale.sh
+        sh/env/env-path.sh
+        sh/env/env-shell.sh
+        sh/init/dircolors.sh
+        sh/init/ssh-agent.sh
+        sh/lib/archive-extractor.sh
+        sh/rc.sh
+        svn/alias-svn.sh
         vscode/alias-vscode.sh
-		yarn/alias-yarn.sh
+        yarn/alias-yarn.sh
 EOF
 
     return $?
@@ -97,50 +99,50 @@ EOF
 __symlink ()
 {
     __doSymlink "$1" <<-EOF
-		git/.gitconfig
-		git/.gitconfig.d
-		tmux/.tmux.conf
-		x11/.Xresources
-		python/.pythonrc
-		sh/.bashrc
-		sh/.bash_profile
-		sh/.zshenv
+        git/.gitconfig
+        git/.gitconfig.d
+        tmux/.tmux.conf
+        x11/.Xresources
+        python/.pythonrc
+        sh/.bashrc
+        sh/.bash_profile
+        sh/.zshenv
 EOF
 
     __doSymlink "$1" ".sh" <<-EOF
-		sh/init
-		sh/lib
-		sh/rc.sh
+        sh/init
+        sh/lib
+        sh/rc.sh
 EOF
 
     __doSymlink "$1" ".sh/alias" <<-EOF
-		diff/alias-diff.sh
-		esp-idf/alias-esp.sh
-		git/alias-git.sh
-		grep/alias-grep.sh
-		pacman/alias-pacman.sh
-		rg/alias-rg.sh
-		sh/alias/alias.sh
-		sh/alias/alias-filesystem.sh
-		sh/alias/alias-posix-misc.sh
-		sh/alias/alias-terminal-emulator.sh
-		svn/alias-svn.sh
+        diff/alias-diff.sh
+        esp-idf/alias-esp.sh
+        git/alias-git.sh
+        grep/alias-grep.sh
+        pacman/alias-pacman.sh
+        rg/alias-rg.sh
+        sh/alias/alias.sh
+        sh/alias/alias-filesystem.sh
+        sh/alias/alias-posix-misc.sh
+        sh/alias/alias-terminal-emulator.sh
+        svn/alias-svn.sh
         vscode/alias-vscode.sh
-		yarn/alias-yarn.sh
+        yarn/alias-yarn.sh
 EOF
 
     __doSymlink "$1" ".sh/env" <<-EOF
-		esp-idf/env-esp.sh
-		sh/env/env.sh
-		sh/env/env-editor.sh
-		sh/env/env-locale.sh
-		sh/env/env-path.sh
-		sh/env/env-shell.sh
+        esp-idf/env-esp.sh
+        sh/env/env.sh
+        sh/env/env-editor.sh
+        sh/env/env-locale.sh
+        sh/env/env-path.sh
+        sh/env/env-shell.sh
 EOF
 
     __doSymlink "$1" ".zsh" <<-EOF
-		sh/.zpreztorc
-		sh/.zshrc
+        sh/.zpreztorc
+        sh/.zshrc
 EOF
 }
 
