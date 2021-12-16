@@ -7,13 +7,15 @@
     identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
     id = identity
 
+    rb = rebase
+    rbc = rebase --continue
     rbi = rebase -i
     rbi5 = rebase -i HEAD~5
     rbi10 = rebase -i HEAD~10
     rbia = rebase -i --autosquash
     rbia5 = rebase -i HEAD~5 --autosquash
     rbia10 = rebase -i HEAD~10 --autosquash
-    rbm = rebase master
+    rbm = rebase main
 
     a = add
     aa = add * .*
@@ -37,6 +39,10 @@
     cb = checkout -b
     co = checkout
 
+    pl = pull
+    ps = push
+    psf = push --force
+
     d = diff
     dc = diff --cached
     dcs = dc --stat
@@ -47,7 +53,6 @@
 
     cp = cherry-pick
     patch = "!git --no-pager diff -p --no-color"
-    p = patch
 
     filelog = log -u
     fl = filelog
