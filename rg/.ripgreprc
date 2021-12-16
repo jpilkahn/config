@@ -11,13 +11,19 @@
 !.git/*
 
 --glob
-!.pnp?(.data).js
-
---glob
 !.yarn/*
 
 --glob
-!yarn.lock
+!node-modules/*
+
+--glob
+!*venv*/*
+
+--glob
+!.pnp?(.data).js
+
+--glob
+!{composer,package,yarn}.lock
 
 --hidden
 
@@ -39,6 +45,9 @@ manifest:{composer,package}.json
 
 --type-add
 rollup:rollup.config.json
+
+--type-add
+vscode:{*.code-workspace,c_cpp_properties,extensions,launch,settings}.json
 
 --type-add
 web:*.{css,html,js}
