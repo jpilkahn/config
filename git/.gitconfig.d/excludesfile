@@ -145,14 +145,17 @@
 
 # ----- (common) private keys --------------------------------------------------
 
+*.asc
 *gpg*
 *id_rsa*
 *id_ecdsa*
 *id_ed25519*
-*private*
-*privkey*
-*.asc
 *.key
+*.private
+*privatekey*
+*private.*
+*privkey*
+!private-include-directories*
 !*public.*
 !*.pub
 
