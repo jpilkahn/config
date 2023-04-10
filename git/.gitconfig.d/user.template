@@ -9,9 +9,9 @@
 [user.jpilkahn]
     name = Johannes Pilkahn
     email = j.pilkahn@gmail.com
-    signingkey = AD031D3FB5481407
+    signingkey = 0C082FE90548A295AB102E92AF4D48C8487CF3E0
 
-[user.goldeimer]
+[user.%__ORG__%]
     name = Johannes Pilkahn
-    email = johannes@goldeimer.de
-    signingkey = 9044A71638CC50F6
+    email = johannes.pilkahn@%__DOMAIN__%
+    signingkey = %__KEY__%

@@ -3,14 +3,13 @@
 # Utility ignore patterns for on-the-spot dynamic use.
 # @see A.1 (1)
 
-**/ignore/
-**/*.ignore.*
-**/*.ignore
+ignore/
+?*.ignore
+?*.ignore.?*
 
 **/stash/
 **/*.stash.*
 **/*.stash
-
 
 # ===== 1. bundle, compile, package, deploy ====================================
 
@@ -26,7 +25,6 @@
 
 **/bower_components/
 **/node_modules/
-**/vendor/
 
 # ----- terraform --------------------------------------------------------------
 
@@ -44,7 +42,7 @@
 
 # ----- yarn > base config -----------------------------------------------------
 
-.yarn/**
+.yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
@@ -59,7 +57,7 @@
 !.yarn/cache
 !.yarn/pnp.data.json
 
-# @see [yarn 2 doc: "zero-installs"][yarn/doc/zero-installs
+# @see [yarn berry doc: "zero-installs"][yarn/doc/zero-installs]
 
 
 # ===== 2. transient data ======================================================
@@ -69,8 +67,6 @@
 **/*.csv
 **/*.db
 **/*.dump
-**/*.sql
-**/*.sqllite
 
 # ----- dev user artifacts -----------------------------------------------------
 
@@ -88,7 +84,8 @@
 
 # ----- vscode -----------------------------------------------------------------
 
-**/.history/
+.history/*
+**/.history/*
 **/.vscode/**
 
 !**/.vscode/doc/

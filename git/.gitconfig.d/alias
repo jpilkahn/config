@@ -1,8 +1,6 @@
 [alias]
-    st = status
-    s = st
-    sts = st -s
-    ss = sts
+    s = status
+    ss = ss -s
 
     identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
     id = identity
@@ -34,6 +32,7 @@
     branch = branch -ra
     br = branch -ra
     brc = checkout -b
+    brD = branch -D
     brm = branch -m
 
     cb = checkout -b
@@ -51,7 +50,9 @@
     dr = diff-range
     ds = diff --stat
 
-    cp = cherry-pick
+    cpi = cherry-pick
+    cpia = cherry-pick --abort
+    cpic = cherry-pick --continue
     patch = "!git --no-pager diff -p --no-color"
 
     filelog = log -u
@@ -79,15 +80,17 @@
     cl = clone
     ic = !git commit --allow-empty -m "chore(git): initial commit"
 
-    sh = stash
-    shl = stash list
-    sha = stash apply
-    shaat = "!f() { git stash apply stash@{$1}; }; f"
-    shv = stash save
-    shw = stash show
-    shwat = "!f() { git stash show stash@{$1}; }; f"
+    sh = show
 
-    shiu = stash --include-untracked
+    st = stash
+    stl = stash list
+    sta = stash apply
+    staat = "!f() { git stash apply stash@{$1}; }; f"
+    stsv = stash save
+    stsh = stash show
+    stshat = "!f() { git stash show stash@{$1}; }; f"
+    stshuat = "!f() { git show 'stash@{$1}^3' }; f"
+    stiu = stash --include-untracked
 
     assume = update-index --assume-unchanged
     unassume = update-index --no-assume-unchanged

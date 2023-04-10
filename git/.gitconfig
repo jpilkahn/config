@@ -4,3 +4,6 @@
     path = .gitconfig.d/color
     path = .gitconfig.d/golang
     path = .gitconfig.d/user
+[safe]
+	directory = /opt/esp-idf
+	directory = /opt/esp-idf/components/openthread/openthread
