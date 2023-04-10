@@ -80,9 +80,11 @@ __lint ()
         sh/alias/alias-filesystem.sh
         sh/alias/alias-posix-misc.sh
         sh/alias/alias-terminal-emulator.sh
+        sh/env/env-deno.sh
         sh/env/env-editor.sh
         sh/env/env-locale.sh
         sh/env/env-path.sh
+        sh/env/env-perl.sh
         sh/env/env-shell.sh
         sh/init/dircolors.sh
         sh/init/ssh-agent.sh
@@ -134,9 +136,11 @@ EOF
     __doSymlink "$1" ".sh/env" <<-EOF
         esp-idf/env-esp.sh
         sh/env/env.sh
+        sh/env/env-deno.sh
         sh/env/env-editor.sh
         sh/env/env-locale.sh
         sh/env/env-path.sh
+        sh/env/env-perl.sh
         sh/env/env-shell.sh
 EOF
 
