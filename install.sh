@@ -106,6 +106,7 @@ __symlink ()
         tmux/.tmux.conf
         x11/.Xresources
         python/.pythonrc
+        rg/.ripgreprc
         sh/.bashrc
         sh/.bash_profile
         sh/.zshenv
@@ -135,6 +136,7 @@ EOF
 
     __doSymlink "$1" ".sh/env" <<-EOF
         esp-idf/env-esp.sh
+        rg/env-rg.sh
         sh/env/env.sh
         sh/env/env-deno.sh
         sh/env/env-editor.sh

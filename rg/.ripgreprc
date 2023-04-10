@@ -11,6 +11,9 @@
 !.git/*
 
 --glob
+!.history/*
+
+--glob
 !.yarn/*
 
 --glob
@@ -23,7 +26,7 @@
 !.pnp?(.data).js
 
 --glob
-!{composer,package,yarn}.lock
+!{Cargo,composer,package,yarn}.lock
 
 --hidden
 
@@ -38,19 +41,13 @@
 bundler:{rollup,webpack}.config.json
 
 --type-add
-lockfile:{composer,package,yarn}.lock
+lockfile:{Cargo,composer,package,yarn}.lock
 
 --type-add
-manifest:{composer,package}.json
-
---type-add
-rollup:rollup.config.json
+manifest:{Cargo.toml, {composer,package}.json}
 
 --type-add
 vscode:{*.code-workspace,c_cpp_properties,extensions,launch,settings}.json
 
 --type-add
 web:*.{css,html,js}
-
---type-add
-webpack:webpack.config.json

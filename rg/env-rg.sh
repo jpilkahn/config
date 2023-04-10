@@ -5,4 +5,4 @@
 #
 # Environment variables holding paths to application configuration files.
 
-RIPGREP_CONFIG_PATH="$HOME/config/misc/.ripgreprc" ; export RIPGREP_CONFIG_PATH
+RIPGREP_CONFIG_PATH="$HOME/.ripgreprc" ; export RIPGREP_CONFIG_PATH
