@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-alias ls="ls -T\${PIL_TABSIZE:-4} \$PIL_COLOR_FLAG"
+alias ls="LC_COLLATE=\"C\" ls -T\${PIL_TABSIZE:-4} \$PIL_COLOR_FLAG --group-directories-first"
 alias la="ls -alF"
 alias ll="ls -AlBFh"
 alias l="ls -F"
