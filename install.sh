@@ -89,6 +89,7 @@ __lint ()
         sh/init/dircolors.sh
         sh/init/ssh-agent.sh
         sh/lib/archive-extractor.sh
+        sh/lib/export-esp.sh
         sh/injected.sh
         sh/rc.sh
         svn/alias-svn.sh

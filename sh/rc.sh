@@ -14,6 +14,7 @@ done <<- EOF
     $HOME/.sh/init/dircolors.sh
     $HOME/.sh/init/ssh-agent.sh
     $HOME/.sh/lib/archive-extractor.sh
+    $HOME/.sh/lib/export-esp.sh
     $HOME/.sh/alias/alias.sh
     $HOME/.sh/injected.sh
 EOF

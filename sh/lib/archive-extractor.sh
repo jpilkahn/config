@@ -1,11 +1,9 @@
 #!/usr/bin/env sh
 
-
 # archive-extractor.sh
 # ====================
 #
 # Utility function to extract compressed archives.
-
 
 # @param  $1 archive-type file to be extracted
 # @tparam $1 path
@@ -23,8 +21,8 @@ __archive_extractor ()
     __unknownExtension ()
     {
         __usage "$2"
-        exit 64
         printf %s\\n "'$1' is not a file format known to $2"
+        exit 64
     }
 
     if [ -r "$1" ] ; then
@@ -48,4 +46,4 @@ __archive_extractor ()
     fi
 }
 
-alias ex=archive-extractor
+alias ex=__archive_extractor
