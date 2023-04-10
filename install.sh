@@ -89,6 +89,7 @@ __lint ()
         sh/init/dircolors.sh
         sh/init/ssh-agent.sh
         sh/lib/archive-extractor.sh
+        sh/injected.sh
         sh/rc.sh
         svn/alias-svn.sh
         vscode/alias-vscode.sh
@@ -115,6 +116,7 @@ EOF
     __doSymlink "$1" ".sh" <<-EOF
         sh/init
         sh/lib
+        sh/injected.sh
         sh/rc.sh
 EOF
 

@@ -1,3 +1,5 @@
 git/.gitconfig.d/user
 
+sh/injected.sh
+
 !gpg

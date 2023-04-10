@@ -1,3 +1,5 @@
+[ -f "$HOME/.zshenv"  ] && . "$HOME/.zshenv"
+
 # ------------------------------------ cd --------------------------------------
 
 setopt AUTO_CD
@@ -54,12 +56,19 @@ setopt BSD_ECHO
 
 setopt NO_BEEP
 
+#shellcheck source=/dev/null
+. "$ZPREZTODIR/init.zsh"
+
 # ----------------------------- auto completion --------------------------------
 
 _gitExtrasZshCompletion="/usr/share/doc/git-extras/git-extras-completion.zsh"
 
 #shellcheck source="/usr/share/doc/git-extras/git-extras-completion.zsh"
 [[ -r "$_gitExtrasZshCompletion" ]] && . "$_gitExtrasZshCompletion"
+
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit
+compinit -u
 
 # ---------------------------------- common ------------------------------------
 
