@@ -163,6 +163,11 @@ EOF
         nushell
         zellij
 EOF
+
+    # needs root privileges...
+#     __doSymlink "$1" "/etc" <<-EOF
+#         etc/pug
+# EOF
 }
 
 __installPythonPackages () {
