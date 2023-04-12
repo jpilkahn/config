@@ -42,7 +42,7 @@ zstyle ':prezto:module:prompt' theme 'agnoster'
 # zstyle ':prezto:module:screen:auto-start' local 'yes'
 # zstyle ':prezto:module:screen:auto-start' remote 'yes'
 
-zstyle ':prezto:module:ssh:load' identities '3rd-party_github_rsa4096'
+zstyle ':prezto:module:ssh:load' identities 'id_johannes_pilkahn_dock_ed25519' 'id_johannes_pilkahn_dock_rsa' '3rd-party_github_rsa4096'
 
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
