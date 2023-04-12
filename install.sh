@@ -85,6 +85,7 @@ __lint ()
         sh/env/env-locale.sh
         sh/env/env-path.sh
         sh/env/env-perl.sh
+        sh/env/env-rust.sh
         sh/env/env-shell.sh
         sh/init/dircolors.sh
         sh/init/ssh-agent.sh
@@ -105,10 +106,10 @@ __symlink ()
     __doSymlink "$1" <<-EOF
         git/.gitconfig
         git/.gitconfig.d
-        tmux/.tmux.conf
-        x11/.Xresources
         python/.pythonrc
         rg/.ripgreprc
+        tmux/.tmux.conf
+        x11/.Xresources
         sh/.bashrc
         sh/.bash_profile
         sh/.zshenv
@@ -146,12 +147,21 @@ EOF
         sh/env/env-locale.sh
         sh/env/env-path.sh
         sh/env/env-perl.sh
+        sh/env/env-rust.sh
         sh/env/env-shell.sh
 EOF
 
     __doSymlink "$1" ".zsh" <<-EOF
         sh/.zpreztorc
         sh/.zshrc
+EOF
+
+    __doSymlink "$1" ".config" <<-EOF
+        bacon
+        joshuto
+        neofetch
+        nushell
+        zellij
 EOF
 }
 

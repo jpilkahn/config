@@ -74,3 +74,5 @@ compinit -u
 
 #shellcheck source="rc.sh"
 _rc="$HOME/.sh/rc.sh" && [[ -r "$_rc" ]] && . "$_rc"
+
+eval "$(zellij setup --generate-auto-start zsh)"

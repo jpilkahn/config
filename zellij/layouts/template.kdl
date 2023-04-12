@@ -1,0 +1,93 @@
+layout {
+
+    /// ---- tab template ------------------------------------------------------
+
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+
+    tab_template name="compact" {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+
+    tab_template name="verbose" {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    /// ---- pane template: command --------------------------------------------
+
+    pane_template name="git_status" {
+        command "git"
+        args "-c" "color.status=always" "status" "--show-stash"
+    }
+
+    pane_template name="git_short_status" {
+        command "git"
+        args "-c" "color.status=always" "status" "-b" "-s"
+    }
+
+    pane_template name="joshuto" {
+        command "joshuto"
+        borderless true
+    }
+
+    pane_template name="pgcli" {
+        command "docker.sh"
+        args "pgcli"
+    }
+
+    pane_template name="watch_git_status" {
+        command "watch"
+        args "--color" "-n2" "--no-title" "--no-wrap" "git -c color.status=always status --show-stash"
+    }
+
+    pane_template name="watch_git_short_status" {
+        command "watch"
+        args "--color" "-n2" "--no-title" "--no-wrap" "git -c color.status=always status -b -s"
+    }
+
+    /// ---- pane template: layout ---------------------------------------------
+
+    pane_template name="joshuto_bottom" {
+        children
+        joshuto name="files" {
+            size "38%"
+        }
+    }
+
+    pane_template name="repo_horizontal" split_direction="Vertical" {
+        children
+        pane size="38%" {
+            joshuto name="files" {
+                start_suspended true
+            }
+            watch_git_short_status name="git" {
+                size "38%"
+            }
+        }
+    }
+
+    pane_template name="repo_vertical" {
+        children
+        pane size="38%" split_direction="Vertical" {
+            joshuto name="files" {
+                start_suspended true
+            }
+            watch_git_short_status name="git" {
+                size "38%"
+            }
+        }
+    }
+}

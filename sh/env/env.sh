@@ -4,6 +4,7 @@
 # shellcheck source=sh/env/env-editor.sh
 # shellcheck source=sh/env/env-path.sh
 # shellcheck source=sh/env/env-perl.sh
+# shellcheck source=sh/env/env-rust.sh
 # shellcheck source=sh/env/env-shell.sh
 # shellcheck source=sh/env/env-editor.sh
 # shellcheck source=../../esp-idf/env-esp.sh
@@ -16,5 +17,6 @@ done <<- EOF
     $HOME/.sh/env/env-locale.sh
     $HOME/.sh/env/env-path.sh
     $HOME/.sh/env/env-perl.sh
+    $HOME/.sh/env/env-rust.sh
     $HOME/.sh/env/env-shell.sh
 EOF

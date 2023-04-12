@@ -1,0 +1,298 @@
+layout {
+
+    /// ---- tab template ------------------------------------------------------
+
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+
+    tab_template name="compact" {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+
+    tab_template name="verbose" {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    /// ---- pane template: command --------------------------------------------
+
+    pane_template name="bacon" {
+        command "bacon"
+    }
+
+    pane_template name="cargo" {
+        command "cargo"
+    }
+
+    pane_template name="cargo_check" {
+        cargo {
+            args "check" "--color" "always"
+        }
+    }
+
+    pane_template name="cargo_check_all" {
+        cargo {
+            args "check" "--color" "always" "--all-features" "--all-targets"
+        }
+    }
+
+    pane_template name="cargo_clippy" {
+        command "cargo"
+        args "clippy" "--color" "always"
+    }
+
+    pane_template name="cargo_clippy_all" {
+        command "cargo"
+        args "clippy" "--color" "always" "--all-features" "--all-targets"
+    }
+
+    pane_template name="cargo_cranky" {
+        command "cargo"
+        args "cranky" "--color" "always"
+    }
+
+    pane_template name="cargo_cranky_all" {
+        command "cargo"
+        args "cranky" "--color" "always" "--all-features" "--all-targets"
+    }
+
+    pane_template name="cargo_nextest" {
+        command "cargo"
+        args "nextest" "run" "--color" "always"
+    }
+
+    pane_template name="cargo_nextest_all" {
+        command "cargo"
+        args "nextest" "run" "--color" "always" "--all-features" "--all-targets"
+    }
+
+    pane_template name="cargo_test" {
+        command "cargo"
+        args "test" "--color" "always"
+    }
+
+    pane_template name="cargo_test_all" {
+        command "cargo"
+        args "test" "--color" "always" "--all-features" "--all-targets"
+    }
+
+    pane_template name="git_status" {
+        command "git"
+        args "-c" "color.status=always" "status" "--show-stash"
+    }
+
+    pane_template name="git_short_status" {
+        command "git"
+        args "-c" "color.status=always" "status" "-b" "-s"
+    }
+
+    pane_template name="gitui" {
+        command "gitui"
+    }
+
+    pane_template name="gitui_suspended" {
+        command "gitui"
+        start_suspended true
+    }
+
+    pane_template name="joshuto" {
+        command "joshuto"
+    }
+
+    pane_template name="joshuto_suspended" {
+        command "joshuto"
+        start_suspended true
+    }
+
+    pane_template name="migrate_cli_apply" {
+        command "migrate"
+        args "apply" "--yes"
+    }
+
+    pane_template name="migrate_cli_prepare" {
+        command "migrate"
+        args "prepare"
+    }
+
+    pane_template name="nu" {
+        command "nu"
+    }
+
+    pane_template name="pgcli" {
+        command "pg.sh"
+        args "pgcli"
+    }
+
+    pane_template name="watch_git_status" {
+        command "watch"
+        args "--color" "-n2" "--no-title" "--no-wrap" "git -c color.status=always status --show-stash"
+    }
+
+    pane_template name="watch_git_short_status" {
+        command "watch"
+        args "--color" "-n2" "--no-title" "--no-wrap" "git -c color.status=always status -b -s"
+    }
+
+    /// ---- pane template: wrapping panes -------------------------------------
+
+    pane_template name="bacon_cranky" {
+        bacon name="cranky" {
+            args "cranky"
+        }
+    }
+
+    pane_template name="bacon_nextest" {
+        bacon name="test" {
+            args "nextest"
+        }
+    }
+
+    pane_template name="bacon_test" {
+        bacon name="test" {
+            args "test"
+        }
+    }
+
+    pane_template name="fs" {
+        joshuto_suspended name="fs"
+    }
+
+    pane_template name="git" {
+        gitui_suspended name="git"
+    }
+
+    pane_template name="migrate_apply" {
+        migrate_cli_apply name="migrate apply"
+    }
+
+    pane_template name="migrate_prepare" {
+        migrate_cli_prepare name="migrate prepare" {
+            start_suspended true
+        }
+    }
+
+    /// ---- pane template: partial --------------------------------------------
+
+    pane_template name="bacon_cranky_and_test" split_direction="Vertical" {
+        bacon_cranky
+        bacon_test
+    }
+
+    pane_template name="joshuto_bottom" {
+        children
+        joshuto name="files" {
+            size "38%"
+        }
+    }
+
+    pane_template name="migrate_apply_and_prepare" split_direction="Vertical" {
+        migrate_apply
+        migrate_prepare
+    }
+
+    pane_template name="repo_horizontal_top" split_direction="Vertical" {
+        git
+        children
+    }
+
+    pane_template name="repo_horizontal_bottom" {
+        children
+        fs size="20%"
+    }
+
+    pane_template name="repo_vertical" {
+        git size="35%"
+        children
+        fs size="12%"
+    }
+
+    /// ---- tabs --------------------------------------------------------------
+
+    compact name="nu" {
+        nu {
+            borderless true
+            start_suspended true
+        }
+    }
+
+    compact name="sys" {
+        pane size="38%" {
+            pane stacked=true {
+                pane name="vpn" {
+                    cwd "/usr/local/openaws-vpn-client"
+                    command "./openaws-vpn-client"
+                    start_suspended true
+                }
+                pane name="top" {
+                    command "htop"
+                    focus true
+                }
+            }
+        }
+        fs
+        pane size="23%" split_direction="Vertical" {
+            pane name="root" {
+                cwd "/"
+            }
+            pane name="home" {
+                cwd "~"
+            }
+        }
+    }
+
+    compact name="config" cwd="config" {
+        repo_vertical {
+            pane name="config"
+        }
+    }
+
+    compact name="the-dock" cwd="projects/dock.financial/the-dock" {
+        repo_vertical {
+            pane split_direction="Vertical" {
+                pane name="repo" {
+                    focus true
+                }
+                pgcli name="postgres" {
+                    start_suspended true
+                }
+            }
+            migrate_apply_and_prepare size="6%"
+            bacon_cranky_and_test size="12%"
+        }
+    }
+
+    // compact name="the-dock-horizontal" cwd="projects/dock.financial/the-dock" {
+    //     repo_horizontal_top {
+    //         pane split_direction="Vertical" {
+    //             pane name="repo" {
+    //                 focus true
+    //             }
+    //             pgcli name="postgres" {
+    //                 size "33%"
+    //                 start_suspended true
+    //             }
+    //         }
+    //     }
+    //     repo_horizontal_bottom {
+    //         pane split_direction="Vertical" size="10%" {
+    //             bacon_cranky_and_test size="67%"
+    //             pane {
+    //                 migrate_apply  size="10%"
+    //                 migrate_prepare size="10%"
+    //             }
+    //         }
+    //     }
+    // }
+}
