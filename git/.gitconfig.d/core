@@ -18,7 +18,9 @@
     autocrlf = input
     editor = joe
     excludesfile = ~/.gitconfig.d/excludesfile
+    fsmonitor = true
     pager = diff-so-fancy | less --tabs=4 -RFX
+    untrackedCache = true
 
 [diff]
     mnemonicprefix = true
