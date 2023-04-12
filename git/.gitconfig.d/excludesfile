@@ -7,9 +7,13 @@ ignore/
 ?*.ignore
 ?*.ignore.?*
 
-**/stash/
-**/*.stash.*
-**/*.stash
+playground/
+?*.playground
+?*.playground.?*
+
+stash/
+?*.stash
+?*.stash.?*
 
 # ===== 1. bundle, compile, package, deploy ====================================
 
@@ -163,6 +167,15 @@ ignore/
 
 **/*secret.*
 **/*secrets.*
+
+
+# ===== 6. tmp =================================================================
+
+/tools/pg-docker/**
+/tools/util/*
+/tools/env.sh
+/tools/pg.sh
+/bacon.toml
 
 
 # ===== A.1 Notes ==============================================================
