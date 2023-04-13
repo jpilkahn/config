@@ -1,8 +1,5 @@
 # ===== 0. utility =============================================================
 
-# Utility ignore patterns for on-the-spot dynamic use.
-# @see A.1 (1)
-
 ignore/
 ?*.ignore
 ?*.ignore.?*
@@ -19,33 +16,34 @@ stash/
 
 # ----- build output -----------------------------------------------------------
 
-**/build/**
-**/dist/**
-**/packages/**/static
+build/
+dist/
+packages/**/static
+target/
 *.mo
 *.pyc
 
 # ----- dependencies (third-party code) ----------------------------------------
 
-**/bower_components/
-**/node_modules/
+bower_components/
+node_modules/
 
 # ----- terraform --------------------------------------------------------------
 
-# terraform
-**/.terraform/*
-**/*.tfstate
-**/*.tfstate.*
-**/*.tfvars
+.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
 
 # ----- tooling artifacts ------------------------------------------------------
 
-**/lerna-*.log
-**/npm-*.log
-**/yarn-*.log
+lerna-*.log
+npm-*.log
+yarn-*.log
 
 # ----- yarn > base config -----------------------------------------------------
 
+# @see [yarn 2 doc: "gitignore"][yarn/doc/gitignore]
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -53,68 +51,63 @@ stash/
 !.yarn/sdks
 !.yarn/versions
 
-# @see [yarn 2 doc: "gitignore"][yarn/doc/gitignore]
-
 # ----- yarn > zero-installs (pnp) ---------------------------------------------
 
+# @see [yarn berry doc: "zero-installs"][yarn/doc/zero-installs]
 !.cache/yarn
 !.yarn/cache
 !.yarn/pnp.data.json
-
-# @see [yarn berry doc: "zero-installs"][yarn/doc/zero-installs]
-
 
 # ===== 2. transient data ======================================================
 
 # ----- db dumps / query results -----------------------------------------------
 
-**/*.csv
-**/*.db
-**/*.dump
+*.csv
+*.db
+*.dump
 
-# ----- dev user artifacts -----------------------------------------------------
+# ----- development artifacts --------------------------------------------------
 
-**/*.diff
-**/*.patch
-**/*.wip.*
+*.diff
+*.patch
+
+wip/
+?*.wip.?*
 
 # ----- (non-persistent) caches ------------------------------------------------
 
-**/.firebase
-**/.rollup.cache
-
+.firebase
+.rollup.cache
 
 # ===== 3. editor ==============================================================
 
 # ----- vscode -----------------------------------------------------------------
 
-.history/*
-**/.history/*
-**/.vscode/**
+.history/
+.vscode/
 
-!**/.vscode/doc/
-!**/.vscode/extensions.json
-!**/.vscode/launch.json
-!**/.vscode/settings.json
-!**/.vscode/tasks.json
+!.vscode/doc/
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
 
-!**/.vscode/*.code-workspace
-!**/.vscode/*_properties.json
+!.vscode/*.code-workspace
+!.vscode/*_properties.json
 
-# ----- other IDEs -------------------------------------------------------------
+# ----- others -----------------------------------------------------------------
 
-**/*.settings/
-**/*.kdev4/
-**/.c9/
-**/.classpath
-**/.idea
-**/.project
-**/*.kate-swp
-**/*.launch
-**/*.sublime-workspace
+*.settings/
+*.kdev4/
+.c9/
+.classpath
+.idea
+.project
+*.kate-swp
+*.launch
+*.sublime-workspace
 
-
-# ===== 4. service & system artifacts =============================================
+# ===== 4. service & system artifacts ==========================================
 
 # ----- OS artifacts -----------------------------------------------------------
 
@@ -127,17 +120,21 @@ stash/
 
 .dcignore
 
-
 # ===== 5. security ============================================================
-
-# NOTE: If uncertain why you'd make a change here, hold it with MC Hammer.
-# (Can't touch this.)
 
 # ----- dotenv -----------------------------------------------------------------
 
-**/*.env*
-!**/.env.defaults
-!**/.env.example
+.env/
+!./env/default
+!./env/defaults
+!./env/example
+!./env/examples
+
+*.env
+!.env.default
+!.env.defaults
+!.env.example
+!.env.examples
 
 # ----- git-secret -------------------------------------------------------------
 
@@ -160,14 +157,11 @@ stash/
 !*public.*
 !*.pub
 
-# This category *should* be a superfluous mention, ideally.
-# @see A.1 (2)
-
 # ----- utility ----------------------------------------------------------------
 
-**/*secret.*
-**/*secrets.*
-
+*secrets/
+?*.secret
+?*.secret.?*
 
 # ===== 6. tmp =================================================================
 
@@ -176,7 +170,6 @@ stash/
 /tools/env.sh
 /tools/pg.sh
 /bacon.toml
-
 
 # ===== A.1 Notes ==============================================================
 
