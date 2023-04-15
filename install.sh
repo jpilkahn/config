@@ -161,6 +161,7 @@ EOF
         joshuto
         neofetch
         nushell
+        xdg/mimeapps.list
         zellij
 EOF
 
