@@ -162,6 +162,7 @@ EOF
         neofetch
         nushell
         zellij
+        .config/mimeapps.list
 EOF
 
     # needs root privileges...
