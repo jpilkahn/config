@@ -8,7 +8,10 @@ alias gai="g ai"
 alias gass="g assume"
 alias gassa="g assume-all"
 alias gau="g au"
-alias gaurbc="g au && g rbc"
+alias gaurbc="__gaurbc"
+__gaurbc() {
+    g au && g rbc
+}
 
 alias gbr="g br"
 alias gbrc="g brc"
@@ -67,10 +70,17 @@ alias grs="g rs"
 alias grs1="g rs1"
 alias grs2="g rs2"
 
+
 alias grst="g rst"
 alias grstg="g rstg"
-alias grsto="g rstg && g coo"
-alias grstt="g rstg && g cot"
+alias grsto="__grsto"
+alias grstt="__grstt"
+__grsto() {
+    g rstg && g coo
+}
+__grstt() {
+    g rstg && g cot
+}
 
 alias gst="g s"
 alias gss="g ss"
