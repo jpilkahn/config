@@ -1,16 +1,24 @@
 # ===== 0. utility =============================================================
 
 ignore/
+?*.ignore/
 ?*.ignore
 ?*.ignore.?*
 
 playground/
+?*.playground/
 ?*.playground
 ?*.playground.?*
 
 stash/
+?*.stash/
 ?*.stash
 ?*.stash.?*
+
+wip/
+?*.wip/
+?*.wip
+?*.wip.?*
 
 # ===== 1. bundle, compile, package, deploy ====================================
 
@@ -70,9 +78,6 @@ yarn-*.log
 
 *.diff
 *.patch
-
-wip/
-?*.wip.?*
 
 # ----- (non-persistent) caches ------------------------------------------------
 
