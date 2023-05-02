@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+_pwd="$HOME/.sh/alias"
+
 # shellcheck source=./diff/alias-diff.sh
 # shellcheck source=./sh/alias/alias-filesystem.sh
 # shellcheck source=./sh/alias/alias-posix-misc.sh
@@ -12,20 +14,20 @@
 # shellcheck source=./svn/alias-svn.sh
 # shellcheck source=./vscode/alias-vscode.sh
 # shellcheck source=./yarn/alias-yarn.sh
-while read -r _include ; do
+while read -r _include; do
     [ -r "$_include" ] && . "$_include"
-done <<- EOF
-    $HOME/.sh/alias/alias-diff.sh
-    $HOME/.sh/alias/alias-esp.sh
-    $HOME/.sh/alias/alias-filesystem.sh
-    $HOME/.sh/alias/alias-git.sh
-    $HOME/.sh/alias/alias-grep.sh
-    $HOME/.sh/alias/alias-pacman.sh
-    $HOME/.sh/alias/alias-posix-misc.sh
-    $HOME/.sh/alias/alias-rg.sh
-    $HOME/.sh/alias/alias-rg.sh
-    $HOME/.sh/alias/alias-svn.sh
-    $HOME/.sh/alias/alias-terminal-emulator.sh
-    $HOME/.sh/alias/alias-vscode.sh
-    $HOME/.sh/alias/alias-yarn.sh
+done <<-EOF
+    $_pwd/alias-diff.sh
+    $_pwd/alias-esp.sh
+    $_pwd/alias-filesystem.sh
+    $_pwd/alias-git.sh
+    $_pwd/alias-grep.sh
+    $_pwd/alias-pacman.sh
+    $_pwd/alias-posix-misc.sh
+    $_pwd/alias-rg.sh
+    $_pwd/alias-rg.sh
+    $_pwd/alias-svn.sh
+    $_pwd/alias-terminal-emulator.sh
+    $_pwd/alias-vscode.sh
+    $_pwd/alias-yarn.sh
 EOF
