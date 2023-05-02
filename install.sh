@@ -65,6 +65,7 @@ __doSymlink() {
 
 __lint() {
     __doLint "$1" <<-EOF
+        cron/alias-cron.sh
         diff/alias-diff.sh
         esp-idf/alias-esp.sh
         esp-idf/env-esp.sh
@@ -121,6 +122,7 @@ EOF
 EOF
 
     __doSymlink "$1" ".sh/alias" <<-EOF
+        cron/alias-cron.sh
         diff/alias-diff.sh
         esp-idf/alias-esp.sh
         git/alias-git.sh
