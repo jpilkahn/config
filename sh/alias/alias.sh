@@ -14,9 +14,9 @@ _pwd="$HOME/.sh/alias"
 # shellcheck source=./rg/alias-rg.sh
 # shellcheck source=./svn/alias-svn.sh
 # shellcheck source=./sh/alias/alias-sys-utils.sh
-# shellcheck source=./sh/alias/alias-terminal-emulator.sh
 # shellcheck source=./vscode/alias-vscode.sh
 # shellcheck source=./yarn/alias-yarn.sh
+# shellcheck source=./zellij/alias-zellij.sh
 while read -r _include; do
     [ -r "$_include" ] && . "$_include"
 done <<-EOF
@@ -32,7 +32,7 @@ done <<-EOF
     $_pwd/alias-rg.sh
     $_pwd/alias-svn.sh
     $_pwd/alias-sys-utils.sh
-    $_pwd/alias-terminal-emulator.sh
     $_pwd/alias-vscode.sh
     $_pwd/alias-yarn.sh
+    $_pwd/alias-zellij.sh
 EOF

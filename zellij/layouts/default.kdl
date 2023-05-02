@@ -150,18 +150,21 @@ layout {
     pane_template name="bacon_cranky" {
         bacon name="cranky" {
             args "cranky"
+            start_suspended true
         }
     }
 
     pane_template name="bacon_nextest" {
         bacon name="test" {
             args "nextest"
+            start_suspended true
         }
     }
 
     pane_template name="bacon_test" {
         bacon name="test" {
             args "test"
+            start_suspended true
         }
     }
 
@@ -174,7 +177,9 @@ layout {
     }
 
     pane_template name="migrate_apply" {
-        migrate_cli_apply name="migrate apply"
+        migrate_cli_apply name="migrate apply" {
+            start_suspended true
+        }
     }
 
     pane_template name="migrate_prepare" {

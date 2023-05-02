@@ -80,7 +80,6 @@ __lint() {
         sh/alias/alias.sh
         sh/alias/alias-coreutils.sh
         sh/alias/alias-sys-utils.sh
-        sh/alias/alias-terminal-emulator.sh
         sh/env/env-deno.sh
         sh/env/env-editor.sh
         sh/env/env-locale.sh
@@ -96,6 +95,7 @@ __lint() {
         svn/alias-svn.sh
         vscode/alias-vscode.sh
         yarn/alias-yarn.sh
+        zellij/alias-zellij.sh
 EOF
 
     return $?
@@ -134,10 +134,10 @@ EOF
         sh/alias/alias.sh
         sh/alias/alias-coreutils.sh
         sh/alias/alias-sys-utils.sh
-        sh/alias/alias-terminal-emulator.sh
         svn/alias-svn.sh
         vscode/alias-vscode.sh
         yarn/alias-yarn.sh
+        zellij/alias-zellij.sh
 EOF
 
     __doSymlink "$1" ".sh/env" <<-EOF
