@@ -70,18 +70,21 @@ __lint() {
         esp-idf/env-esp.sh
         git/alias-git.sh
         grep/alias-grep.sh
+        k8/alias-k8.sh
         pacman/alias-pacman.sh
         rg/alias-rg.sh
+        rust/cargo/alias-cargo.sh
+        rust/cargo/env-cargo.sh
+        rust/env-rust.sh
         sh/alias/alias.sh
         sh/alias/alias-filesystem.sh
-        sh/alias/alias-posix-misc.sh
+        sh/alias/alias-sys-utils.sh
         sh/alias/alias-terminal-emulator.sh
         sh/env/env-deno.sh
         sh/env/env-editor.sh
         sh/env/env-locale.sh
         sh/env/env-path.sh
         sh/env/env-perl.sh
-        sh/env/env-rust.sh
         sh/env/env-shell.sh
         sh/init/dircolors.sh
         sh/init/ssh-agent.sh
@@ -122,11 +125,13 @@ EOF
         esp-idf/alias-esp.sh
         git/alias-git.sh
         grep/alias-grep.sh
+        k8/alias-k8.sh
         pacman/alias-pacman.sh
         rg/alias-rg.sh
+        rust/cargo/alias-cargo.sh
         sh/alias/alias.sh
         sh/alias/alias-filesystem.sh
-        sh/alias/alias-posix-misc.sh
+        sh/alias/alias-sys-utils.sh
         sh/alias/alias-terminal-emulator.sh
         svn/alias-svn.sh
         vscode/alias-vscode.sh
@@ -136,6 +141,8 @@ EOF
     __doSymlink "$1" ".sh/env" <<-EOF
         esp-idf/env-esp.sh
         rg/env-rg.sh
+        rust/cargo/env-cargo.sh
+        rust/env-rust.sh
         sh/env/env.sh
         sh/env/env-deno.sh
         sh/env/env-editor.sh
