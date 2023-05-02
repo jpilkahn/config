@@ -1,7 +1,10 @@
 {
   "recommendations": [
+    "jeff-hykin.better-shellscript-syntax",
     "kdl-org.kdl",
+    "sidneys1.gitconfig",
+    "thenuprojectcontributors.vscode-nushell-lang",
     "timonwong.shellcheck",
-    "thenuprojectcontributors.vscode-nushell-lang"
+    "yy0931.gitconfig-lsp"
   ]
 }
