@@ -11,7 +11,7 @@
     email = j.pilkahn@gmail.com
     signingkey = 0C082FE90548A295AB102E92AF4D48C8487CF3E0
 
-[user.%__ORG__%]
+[user.org-name]
     name = Johannes Pilkahn
     email = johannes.pilkahn@%__DOMAIN__%
     signingkey = %__KEY__%

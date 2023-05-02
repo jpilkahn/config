@@ -23,9 +23,9 @@
     cma = commit -a -m
     caa = commit -a --amend -C HEAD
 
-    cpi = cherry-pick
-    cpia = cherry-pick --abort
-    cpic = cherry-pick --continue
+    cp = cherry-pick
+    cpa = cherry-pick --abort
+    cpc = cherry-pick --continue
 
     cl = clone
 

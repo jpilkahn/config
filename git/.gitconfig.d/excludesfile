@@ -188,7 +188,6 @@ yarn-*.log
 # Let's at least treat data security with a bit more serioussnes than man is
 # treating the soon reached `> 400ppm` carbondioxide in the atmosphere.
 
-
 # ===== A.2 References =========================================================
 
 # [yarn/doc/gitignore]: https://yarnpkg.com/getting=started/qa#which=files=should=be=gitignored
