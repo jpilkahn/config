@@ -24,9 +24,9 @@ alias gcm="g cm"
 
 alias gcl="g cl"
 
-alias gcpi="g cpi"
-alias gcpia="g cpia"
-alias gcpic="g cpic"
+alias gcp="g cp"
+alias gcpa="g cpa"
+alias gcpc="g cpc"
 
 alias gco="g co"
 alias gcob="g cob"
@@ -40,6 +40,8 @@ alias gds="g ds"
 
 alias gfl="g fl"
 
+alias gg="g s"
+
 alias ggr="g gr"
 alias ggrf="g grf"
 
@@ -47,6 +49,8 @@ alias gic="g ic"
 
 alias gl="g l"
 alias gll="g ll"
+
+alias gmv="g mv"
 
 alias gpl="g pl"
 alias gps="g ps"
@@ -78,16 +82,19 @@ alias grstg="g rstg"
 alias grsto="__grsto"
 alias grstt="__grstt"
 __grsto() {
-    g rstg && g coo
+    _args="$*"
+    g rstg "$_args" && g coo "$_args"
 }
 __grstt() {
-    g rstg && g cot
+    _args="$*"
+    g rstg "$_args" && g cot "$_args"
 }
 
-alias gst="g s"
 alias gss="g ss"
 alias gsh="g sh"
-alias gsth="g st"
+# TODO:
+# Reenable, once muscle memory has accepted `gg` in favor of `gst` for `git status`
+# alias gst="g st"
 alias gsta="g sta"
 alias gsta@="g staat"
 alias gstiu="g stiu"
