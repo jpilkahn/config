@@ -78,7 +78,7 @@ __lint() {
         rust/cargo/env-cargo.sh
         rust/env-rust.sh
         sh/alias/alias.sh
-        sh/alias/alias-filesystem.sh
+        sh/alias/alias-coreutils.sh
         sh/alias/alias-sys-utils.sh
         sh/alias/alias-terminal-emulator.sh
         sh/env/env-deno.sh
@@ -132,7 +132,7 @@ EOF
         rg/alias-rg.sh
         rust/cargo/alias-cargo.sh
         sh/alias/alias.sh
-        sh/alias/alias-filesystem.sh
+        sh/alias/alias-coreutils.sh
         sh/alias/alias-sys-utils.sh
         sh/alias/alias-terminal-emulator.sh
         svn/alias-svn.sh
