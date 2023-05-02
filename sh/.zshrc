@@ -1,4 +1,4 @@
-[ -f "$HOME/.zshenv"  ] && . "$HOME/.zshenv"
+[ -f "$HOME/.zshenv" ] && . "$HOME/.zshenv"
 
 # ------------------------------------ cd --------------------------------------
 
@@ -30,9 +30,14 @@ setopt HIST_LEX_WORDS
 setopt HIST_VERIFY
 setopt SHARE_HISTORY
 
+# max values: `LONG_MAX` (`limits.h`), `9223372036854775807`
+# @see http://www.zsh.org/mla/users/2013/msg00691.html
 HISTSIZE=999999
+export HISTSIZE
 SAVEHIST=999999
+export SAVEHIST
 HISTFILE=${ZDOTDIR:-"$HOME"}/.zsh_history
+export HISTFILE
 
 # ------------------------------------ i/o -------------------------------------
 
@@ -43,9 +48,13 @@ setopt PATH_SCRIPT
 
 # --------------------------------- nocorrect ----------------------------------
 
+# coreutils
 alias cp='nocorrect cp'
+alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
-alias rg --type package='nocorrect rg --type package'
+
+# other executables
+alias cargo='nocorrect cargo'
 
 # ------------------------------ shell emulation -------------------------------
 
