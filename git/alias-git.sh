@@ -70,6 +70,8 @@ alias grs="g rs"
 alias grs1="g rs1"
 alias grs2="g rs2"
 
+alias grp="g rp"
+alias grpo="g rpo"
 
 alias grst="g rst"
 alias grstg="g rstg"
