@@ -88,8 +88,12 @@ __lint() {
         sh/env/env-shell.sh
         sh/init/dircolors.sh
         sh/init/ssh-agent.sh
+        sh/lib/alias-util.sh
         sh/lib/archive-extractor.sh
+        sh/lib/conditional-exec.sh
         sh/lib/export-esp.sh
+        sh/lib/shell-util.sh
+        sh/lib/string-util.sh
         sh/injected.sh
         sh/rc.sh
         svn/alias-svn.sh
