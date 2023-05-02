@@ -1,0 +1,20 @@
+root                     = true
+
+[*]
+charset                  = utf-8
+end_of_line              = lf
+indent_size              = 4
+indent_style             = space
+insert_final_newline     = true
+trim_trailing_whitespace = true
+
+[*.sh]
+# shfmt
+binary_next_line         = true
+function_next_line       = false
+keep_padding             = true
+space_redirects          = false
+switch_case_indent       = true
+
+[yaml]
+indent_size              = 2
