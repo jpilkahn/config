@@ -50,6 +50,10 @@ alias gic="g ic"
 alias gl="g l"
 alias gll="g ll"
 
+alias gmrg="g mrg"
+alias gmrga="g mrga"
+alias gmrgc="g mrgc"
+
 alias gmv="g mv"
 
 alias gpl="g pl"
