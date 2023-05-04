@@ -1,5 +1,7 @@
-[Added Associations]
+[Default Applications]
+
 inode/directory=org.kde.dolphin.desktop;
+
 text/cache-manifest=codium.desktop;nvim.desktop;neovide.desktop;joe.desktop;org.kde.kate.desktop;org.kde.kwrite.desktop;
 text/css=codium.desktop;nvim.desktop;neovide.desktop;joe.desktop;org.kde.kate.desktop;org.kde.kwrite.desktop;
 text/html=chromium.desktop;firefox.desktop;brave-browser.desktop;vivaldi-stable.desktop;org.kde.falkon.desktop;codium.desktop;nvim.desktop;neovide.desktop;joe.desktop;org.kde.kate.desktop;org.kde.kwrite.desktop;
@@ -43,35 +45,12 @@ text/x-retext=codium.desktop;nvim.desktop;neovide.desktop;joe.desktop;org.kde.ka
 text/x-sass=codium.desktop;nvim.desktop;neovide.desktop;joe.desktop;org.kde.kate.desktop;org.kde.kwrite.desktop;
 text/x-scala=codium.desktop;nvim.desktop;neovide.desktop;joe.desktop;org.kde.kate.desktop;org.kde.kwrite.desktop;
 text/x-scss=codium.desktop;nvim.desktop;neovide.desktop;joe.desktop;org.kde.kate.desktop;org.kde.kwrite.desktop;
+
+x-scheme-handler/etcher=Electron.desktop;
 x-scheme-handler/geo=openstreetmap-geo-handler.desktop;
 x-scheme-handler/http=chromium.desktop;
 x-scheme-handler/https=chromium.desktop;
 x-scheme-handler/mailto=thunderbird.desktop;
-x-scheme-handler/tel=Zoom.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-26B4J1.desktop;
-
-[Default Applications]
-inode/directory=org.kde.dolphin.desktop;
-text/html=chromium.desktop;
-text/javascript=org.kde.kate.desktop;
-text/markdown=okularApplication_md.desktop;
-text/rust=org.kde.kate.desktop;
-text/x-c++hdr=org.kde.kate.desktop;
-text/x-c++src=root.desktop;
-text/x-chdr=org.kde.kate.desktop;
-text/x-cmake=org.kde.kate.desktop;
-text/x-csharp=org.kde.kate.desktop;
-text/x-csrc=org.kde.kate.desktop;
-text/x-haskell=org.kde.kate.desktop;
-text/x-java=org.kde.kate.desktop;
-text/x-kotlin=org.kde.kate.desktop;
-text/x-makefile=org.kde.kate.desktop;
-text/x-matlab=org.octave.Octave.desktop;
-x-scheme-handler/etcher=Electron.desktop
-x-scheme-handler/geo=openstreetmap-geo-handler.desktop;
-x-scheme-handler/http=chromium.desktop;
-x-scheme-handler/https=chromium.desktop;
-x-scheme-handler/mailto=chromium.desktop;
 x-scheme-handler/tel=Zoom.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-26B4J1.desktop;
 x-scheme-handler/webcal=chromium.desktop;
