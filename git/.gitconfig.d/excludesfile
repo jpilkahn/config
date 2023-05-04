@@ -20,7 +20,7 @@ wip/
 ?*.wip
 ?*.wip.?*
 
-# ===== 1. bundle, compile, package, deploy ====================================
+# ===== 1. dev =================================================================
 
 # ----- build output -----------------------------------------------------------
 
@@ -31,10 +31,11 @@ target/
 *.mo
 *.pyc
 
-# ----- dependencies (third-party code) ----------------------------------------
+# ----- dependencies / third-party ---------------------------------------------
 
 bower_components/
 node_modules/
+vendor/
 
 # ----- terraform --------------------------------------------------------------
 
@@ -43,15 +44,9 @@ node_modules/
 *.tfstate.*
 *.tfvars
 
-# ----- tooling artifacts ------------------------------------------------------
-
-lerna-*.log
-npm-*.log
-yarn-*.log
-
 # ----- yarn > base config -----------------------------------------------------
 
-# @see [yarn 2 doc: "gitignore"][yarn/doc/gitignore]
+# @see [yarn 2 doc: "gitignore"][yarn/gitignore]
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -61,28 +56,33 @@ yarn-*.log
 
 # ----- yarn > zero-installs (pnp) ---------------------------------------------
 
-# @see [yarn berry doc: "zero-installs"][yarn/doc/zero-installs]
+# @see [yarn berry doc: "zero-installs"][yarn/zero-installs]
 !.cache/yarn
 !.yarn/cache
 !.yarn/pnp.data.json
 
 # ===== 2. transient data ======================================================
 
-# ----- db dumps / query results -----------------------------------------------
+# ----- raw data (query results, db dumps) -------------------------------------
 
 *.csv
 *.db
 *.dump
 
-# ----- development artifacts --------------------------------------------------
+# ----- dev artifacts ----------------------------------------------------------
 
 *.diff
 *.patch
 
-# ----- (non-persistent) caches ------------------------------------------------
+# ----- caches -----------------------------------------------------------------
 
 .firebase
 .rollup.cache
+
+# ----- logs -------------------------------------------------------------------
+
+*.log
+junit.xml
 
 # ===== 3. editor ==============================================================
 
@@ -112,7 +112,7 @@ yarn-*.log
 *.launch
 *.sublime-workspace
 
-# ===== 4. service & system artifacts ==========================================
+# ===== 4. host artifacts ======================================================
 
 # ----- OS artifacts -----------------------------------------------------------
 
@@ -125,7 +125,7 @@ yarn-*.log
 
 .dcignore
 
-# ===== 5. security ============================================================
+# ===== 5. secrets =============================================================
 
 # ----- dotenv -----------------------------------------------------------------
 
@@ -144,9 +144,9 @@ yarn-*.log
 # ----- git-secret -------------------------------------------------------------
 
 .gitsecret/keys/random_seed
-!**/*.secret
+!*.secret
 
-# ----- (common) private keys --------------------------------------------------
+# ----- private keys -----------------------------------------------------------
 
 *.asc
 *gpg*
@@ -168,27 +168,13 @@ yarn-*.log
 ?*.secret
 ?*.secret.?*
 
-# ===== 6. tmp =================================================================
-
-/tools/pg-docker/**
-/tools/util/*
-/tools/env.sh
-/tools/pg.sh
-/bacon.toml
-
 # ===== A.1 Notes ==============================================================
 
 # (1) Section 0 holds Utility ignore patterns for on-the-spot dynamic use.
 # Deliberatedly placed at the head of the file as the 'zeroest' category,
-# such that more fine-grained rules are not unknowingly negated by these
-# patterns afterwards.
-
-# (2) This category *should* be a superfluous mention, ideally.
-# At the same time, mankind also *should* massively care about climate change.
-# Let's at least treat data security with a bit more serioussnes than man is
-# treating the soon reached `> 400ppm` carbondioxide in the atmosphere.
+# such that more fine-grained rules are not unknowingly negated.
 
 # ===== A.2 References =========================================================
 
-# [yarn/doc/gitignore]: https://yarnpkg.com/getting=started/qa#which=files=should=be=gitignored
-# [yarn/doc/zero-installs]: https://yarnpkg.com/features/zero=installs
+# [yarn/gitignore]: https://yarnpkg.com/getting=started/qa#which=files=should=be=gitignored
+# [yarn/zero-installs]: https://yarnpkg.com/features/zero=installs
