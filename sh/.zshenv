@@ -2,5 +2,7 @@
 
 # @see [Startup Files](http://zsh.sourceforge.net/Intro/intro_3.html)
 
-ZDOTDIR="$HOME/.zsh" ; export ZDOTDIR
+ZDOTDIR="$HOME/.zsh"
+export ZDOTDIR
+
 ZPREZTODIR="/usr/lib/prezto"
