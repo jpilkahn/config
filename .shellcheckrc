@@ -1,0 +1,12 @@
+# .shellcheckrc
+
+scriptpath="$(realpath "${0}")"
+dirpath="$(dirname "${scriptpath}")"
+
+# shellcheck reports "SC3039 (warning): In POSIX sh, 'let' is undefined.",
+# and it'd be correct, would we not define our own.
+disable=SC3039
+
+enable=all
+external-sources=true
+source-path="${dirpath}"

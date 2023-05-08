@@ -10,9 +10,9 @@ trim_trailing_whitespace = true
 
 [*.sh]
 # shfmt
-binary_next_line         = true
+binary_next_line         = false
 function_next_line       = false
-keep_padding             = true
+keep_padding             = false
 space_redirects          = false
 switch_case_indent       = true
 
