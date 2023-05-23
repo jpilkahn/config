@@ -1,0 +1,61 @@
+#!/usr/bin/env sh
+
+# Bootstrap with `autotools`
+#
+# Run this script once after check out for initial bootstrapping.
+
+main() {
+    __parse_args "${@}" || {
+        __usage "${_proc}"
+        return
+    }
+
+    # set up an `m4` environment
+    aclocal
+
+    # generate `configure` from `configure.ac`
+    autoconf
+
+    # generate `Makefile.in` from `Makefile.am`
+    automake --add-missing
+
+    # generate `Makefile` from `Makefile.in`
+    if test "${_cfg_no_configure}" -eq 0; then
+        ./configure "${@}" || return
+    fi
+}
+
+__parse_args() {
+    _cfg_no_configure=0
+
+    while test -n "${1}"; do
+        case "${1}" in
+            "${_opt_no_configure}")
+                _cfg_no_configure=1
+                shift
+                break
+                ;;
+            *)
+                # TODO:
+                # - Fail (`false; return`, e.g.) if not a valid argument for
+                #   `configure` either.
+                break
+                ;;
+        esac
+    done
+}
+
+__usage() {
+    printf 'usage: %s [OPTIONS]\n' "${1}"
+    printf \\n
+    printf OPTIONS\\n
+    printf '  %s\t%s\n' \
+        "${_opt_no_configure}" \
+        'Bootstrap only, do not execute generated `configure` script.'
+}
+
+_opt_no_configure=--no-configure
+
+_proc="${0}"
+
+main "${@}"

@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+# Install package
+main() {
+    # if __is_arch_flavor; then
+    #     __make_pkg "${@}"
+    #     return
+    # fi
+
+    __make_install "${@}"
+}
+
+__make_install() {
+    ./autogen "${@}" \
+        && make \
+        && sudo make install
+}
+
+__make_pkg() {
+    ./autogen --no-configure "${@}"
+}
+
+__is_arch_flavor() {
+    command -v pacman \
+        && command -v makepkg
+}
+
+main "${@}"

@@ -89,7 +89,6 @@ __lint() {
         sh/init/dircolors.sh
         sh/init/ssh-agent.sh
         sh/lib/alias-util.sh
-        sh/lib/archive-extractor.sh
         sh/lib/conditional-exec.sh
         sh/lib/export-esp.sh
         sh/lib/shell-util.sh
