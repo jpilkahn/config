@@ -35,13 +35,33 @@
     coou = "!f() { git co --ours $@ && git add $@; }; f"
     coth = "!f() { git co --theirs $@ && git add $@; }; f"
 
+    diff-commit = "!f() { git diff $2 -w "$1"^.."$1"; }; f"
+    diff-commit-stat = "!f() { git diff-commit $1 --stat; }; f"
+
+    diff-head = "!f() { git diff-prior HEAD $1; }; f"
+    diff-head-stat = "!f() { git diff-prior-stat HEAD $1; }; f"
+
+    diff-prior-impl = "!f() { git diff $3 -w "$1"~$2.."$1"; }; f"
+    diff-prior = "!f() { git diff-prior-impl $1 $2; }; f"
+    diff-prior-stat = "!f() { git diff-prior-impl $1 $2 --stat; }; f"
+
+    diff-range-impl = "!f() { git diff $3 -w "$1".."$2"; }; f"
+    diff-range = "!f() { git diff-range-impl $1 $2; }; f"
+    diff-range-stat = "!f() { git diff-range-impl $1 $2 --stat; }; f"
+
     d = diff
     dc = diff --cached
     dcs = dc --stat
-    dlc = diff --cached HEAD^
-    diff-range = "!f() { git diff -w "$1"^.."$1"; }; f"
-    dr = diff-range
     ds = diff --stat
+
+    dcm = diff-commit
+    dcms = diff-commit-stat
+    dh = diff-head
+    dhs = diff-head-stat
+    dp = diff-prior
+    dps = diff-prior-stat
+    dr = diff-range
+    drs = diff-range-stat
 
     done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
 

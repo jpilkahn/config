@@ -39,6 +39,15 @@ alias gdc="g dc"
 alias gdcs="g dcs"
 alias gds="g ds"
 
+alias gdcm="g dcm"
+alias gdcms="g dcms"
+alias gdh="g dh"
+alias gdhs="g dhs"
+alias gdp="g dp"
+alias gdps="g dps"
+alias gdr="g dr"
+alias gdrs="g drs"
+
 alias gfl="g fl"
 
 alias gg="g s"
