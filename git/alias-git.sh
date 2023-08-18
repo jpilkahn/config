@@ -30,8 +30,9 @@ alias gcpc="g cpc"
 
 alias gco="g co"
 alias gcob="g cob"
-alias gcoo="g coo"
 alias gcot="g cot"
+alias gcoou="g coou"
+alias gcoth="g coth"
 
 alias gd="g d"
 alias gdc="g dc"
@@ -87,11 +88,11 @@ alias grsto="__grsto"
 alias grstt="__grstt"
 __grsto() {
     _args="$*"
-    g rstg "$_args" && g coo "$_args"
+    g rstg "$_args" && g coou "$_args"
 }
 __grstt() {
     _args="$*"
-    g rstg "$_args" && g cot "$_args"
+    g rstg "$_args" && g coth "$_args"
 }
 
 alias gss="g ss"

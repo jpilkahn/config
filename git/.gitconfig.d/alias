@@ -31,8 +31,9 @@
 
     co = checkout
     cob = checkout -b
-    coo = "!f() { git co --ours $@ && git add $@; }; f"
-    cot = "!f() { git co --theirs $@ && git add $@; }; f"
+    cot = checkout --track
+    coou = "!f() { git co --ours $@ && git add $@; }; f"
+    coth = "!f() { git co --theirs $@ && git add $@; }; f"
 
     d = diff
     dc = diff --cached
