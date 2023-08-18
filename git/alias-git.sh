@@ -97,9 +97,7 @@ __grstt() {
 
 alias gss="g ss"
 alias gsh="g sh"
-# TODO:
-# Reenable, once muscle memory has accepted `gg` in favor of `gst` for `git status`
-# alias gst="g st"
+alias gst="g st"
 alias gsta="g sta"
 alias gsta@="g staat"
 alias gstiu="g stiu"
