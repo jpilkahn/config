@@ -24,7 +24,7 @@ alias prm="premove"
 alias psi="pacman -Si"
 alias pss="pacman -Ss"
 
-alias psync="pacman -Syuw"
+alias psync="sudo pacman -Syuw"
 
-alias pupgrade="sudo pacman -Syu"
+alias pupgrade="sudo pacman -Syuu"
 alias pu="pupgrade"
