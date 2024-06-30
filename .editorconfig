@@ -1,20 +1,39 @@
 root                     = true
 
+# (file type independent) defaults
 [*]
+# widely supported by editors
 charset                  = utf-8
 end_of_line              = lf
 indent_size              = 4
 indent_style             = space
 insert_final_newline     = true
+tab_width                = 4
 trim_trailing_whitespace = true
+# supported by a limited number of editors
+max_line_length          = 80
 
-[*.sh]
+# make / automake
+[{{M,m}akefile{.in}?,*.am}]
+indent_style             = tab
+
+# markdown
+[*.md{.in}?]
+indent_size              = 2
+trim_trailing_whitespace = false
+
+# shellscript
+[*.{ba,da,c,k,tc?,z}?sh{.in}?]
+indent_size              = 4
+indent_style             = space
 # shfmt
-binary_next_line         = false
+binary_next_line         = true
 function_next_line       = false
 keep_padding             = false
+shell_variant            = auto
 space_redirects          = false
 switch_case_indent       = true
 
-[yaml]
+# yaml
+[*.ya?ml{.in}?]
 indent_size              = 2
