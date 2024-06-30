@@ -1,32 +1,25 @@
+--after-context=2
+--before-context=2
+
 --colors=line:style:bold
 
 --column
 
---after-context=2
---before-context=2
-
 --follow
 
---glob
-!.git/*
+--glob=!.git/*
 
---glob
-!.history/*
+--glob=!.history/*
 
---glob
-!.yarn/*
+--glob=!.yarn/*
 
---glob
-!node-modules/*
+--glob=!node-modules/*
 
---glob
-!*venv*/*
+--glob=!*venv*/*
 
---glob
-!.pnp?(.data).js
+--glob=!.pnp?(.data).js
 
---glob
-!{Cargo,composer,package,yarn}.lock
+--glob=!{Cargo,composer,package,yarn}.lock
 
 --hidden
 
@@ -41,6 +34,9 @@
 bundler:{rollup,webpack}.config.json
 
 --type-add
+jsonnet:*.libsonnet
+
+--type-add
 lockfile:{Cargo,composer,package,yarn}.lock
 
 --type-add
@@ -50,4 +46,4 @@ manifest:{Cargo.toml, {composer,package}.json}
 vscode:{*.code-workspace,c_cpp_properties,extensions,launch,settings}.json
 
 --type-add
-web:*.{css,html,js}
+web:*.{s?css,html?,js}
