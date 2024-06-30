@@ -4,9 +4,23 @@
 
 _default_toolchain="stable"
 
+__default_export() {
+    _var="$1"
+    _default="$2"
+
+    printf '%s="${%s:-%s}"\n' \
+        "${_var}" \
+        "${_var}" \
+        "${_default}"
+}
+
+__default_export RUSTUP_TOOLCHAIN "${_default_toolchain}"
+
+__default_export RUST_USER_CONFIG_DIR '"${HOME}"'
+
 # ------ config ----------------------------------------------------------------
 
-RUSTUP_TOOLCHAIN="${RUSTUP_TOOLCHAIN:-"${_default_toolchain}"}"
+RUSTUP_TOOLCHAIN="${RUSTUP_TOOLCHAIN:-}"
 export RUSTUP_TOOLCHAIN
 
 # ------ paths -----------------------------------------------------------------
