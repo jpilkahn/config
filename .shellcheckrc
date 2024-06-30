@@ -1,12 +1,30 @@
 # .shellcheckrc
 
+# ----- base path(s) -----------------------------------------------------------
+
 scriptpath="$(realpath "${0}")"
 dirpath="$(dirname "${scriptpath}")"
 
-# shellcheck reports "SC3039 (warning): In POSIX sh, 'let' is undefined.",
-# and it'd be correct, would we not define our own.
-disable=SC3039
+# ----- config -----------------------------------------------------------------
 
-enable=all
+check-sourced="${SHELLCHECK_CHECK_SOURCED:-true}"
 external-sources=true
+
+severity="${SHELLCHECK_SEVERITY:-Style}"
+
+source-path="SCRIPTDIR"
 source-path="${dirpath}"
+
+# ----- checks -----------------------------------------------------------------
+
+# [SC2016, warning]
+# "Expressions don't expand in single quotes, use double quotes for that."
+#
+# [SC2142, error]
+# "Aliases can't use positional parameters. Use a function."
+#
+# These are a nuisance when partially applying functions by deliberatedly
+# single-quoting strings containing positional arguments for later use.
+disable=SC2016,SC2142
+
+enable="${SHELLCHECK_ENABLE:-all}"
