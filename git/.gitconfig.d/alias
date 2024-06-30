@@ -1,4 +1,7 @@
 [alias]
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+    alias2 = "!git aliases | rg \"^${1}\\s+\" #"
+
     a = add
     aa = add * .*
     ai = add --interactive
@@ -23,9 +26,9 @@
     cma = commit -a -m
     caa = commit -a --amend -C HEAD
 
-    cp = cherry-pick
-    cpa = cherry-pick --abort
-    cpc = cherry-pick --continue
+    chp = cherry-pick
+    chpa = cherry-pick --abort
+    chpc = cherry-pick --continue
 
     cl = clone
 
@@ -79,10 +82,9 @@
     l = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
     lc = "!f() { git ll "$1"^.."$1"; }; f"
     lf = filelog
+    lj = "!f() { gl }; f"
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
-
-    la = "!git config -l | grep alias | cut -c 7-"
 
     lap = "!f() { git --git-dir=$1 format-patch -k -1 --stdout $2 | git am -3 -k; }; f"
 
@@ -94,6 +96,9 @@
     mrg = "merge"
     mrga = "merge --abort"
     mrgc = "mrg --continue"
+
+    quote = "!read -r l; printf \\\"!; printf %s \"$l\" | sed 's/\\([\\\"]\\)/\\\\\\1/g'; printf \" #\\\"\\n\" #"
+    unquote = "!read -r l; printf %s \"$l\" | sed 's/\\\\\\([\\\"]\\)/\\1/g'; printf \"\\n\" #"
 
     patch = "!git --no-pager diff -p --no-color"
 
@@ -117,13 +122,12 @@
     rb = rebase
     rba = rebase --abort
     rbc = rebase --continue
-    rbi = rebase -i
-    rbi5 = rebase -i HEAD~5
-    rbi10 = rebase -i HEAD~10
-    rbia = rebase -i --autosquash
-    rbia5 = rebase -i HEAD~5 --autosquash
-    rbia10 = rebase -i HEAD~10 --autosquash
+    rbi = rela 'git rebase -i'
+    rbia = rela 'git rebase -i --autosquash'
     rbm = rebase main
+
+    rel = "!printf '%s~%d' \"${2:-\"HEAD\"}\" \"${1:-\"1\"}\" #"
+    rela = "!_1=\"${1}\"; shift; ${_1} \"$(git rel \"${@}\")\" #"
 
     rem = "!git config -l | grep remote.*url | tail -n +2"
 

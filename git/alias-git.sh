@@ -24,9 +24,9 @@ alias gcm="g cm"
 
 alias gcl="g cl"
 
-alias gcp="g cp"
-alias gcpa="g cpa"
-alias gcpc="g cpc"
+alias gchp="g chp"
+alias gchpa="g chpa"
+alias gchpc="g chpc"
 
 alias gco="g co"
 alias gcob="g cob"
@@ -58,6 +58,7 @@ alias ggrf="g grf"
 alias gic="g ic"
 
 alias gl="g l"
+alias glj="g lj"
 alias gll="g ll"
 
 alias gmrg="g mrg"

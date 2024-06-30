@@ -1,17 +1,17 @@
 [user]
-    useConfigOnly = true
+useConfigOnly = true
 
 [user.default]
-    name = Johannes Pilkahn
-    email = j.pilkahn@gmail.com
-    signingkey = AD031D3FB5481407
+name = Johannes Pilkahn
+email = j.pilkahn@gmail.com
+signingkey = AD031D3FB5481407
 
 [user.jpilkahn]
-    name = Johannes Pilkahn
-    email = j.pilkahn@gmail.com
-    signingkey = 0C082FE90548A295AB102E92AF4D48C8487CF3E0
+name = Johannes Pilkahn
+email = j.pilkahn@gmail.com
+signingkey = 0C082FE90548A295AB102E92AF4D48C8487CF3E0
 
 [user.org-name]
-    name = Johannes Pilkahn
-    email = johannes.pilkahn@%__DOMAIN__%
-    signingkey = %__KEY__%
+name = Johannes Pilkahn
+email = johannes.pilkahn@%__DOMAIN__%
+signingkey = %__KEY__%
