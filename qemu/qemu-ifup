@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+printf '%s\n' "qemu-ifup"
+
+_dev="${1}"
+
+echo "Bringing up ${_dev} for bridged mode."
+
+sudo /usr/bin/ip link set "${_dev}" up promisc on
+
+echo "Adding ${_dev} to br0."
+
+sudo /usr/bin/brctl addif br0 "${_dev}"
+sleep 2

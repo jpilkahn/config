@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+printf '%s\n' "qemu-ifdown"
+
+_dev="${1}"
+
+sudo /usr/bin/ip link set "${_dev}" down
+sudo /usr/bin/brctl delif br0 "${_dev}"
+sudo /usr/bin/ip link delete dev "${_dev}"
